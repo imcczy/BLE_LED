@@ -1,0 +1,38 @@
+com.example.LED.BluetoothLeService
+com.example.LED.BluetoothLeService: BluetoothLeService()
+com.example.LED.DeviceScanActivity
+com.example.LED.DeviceScanActivity: DeviceScanActivity()
+com.example.LED.R$drawable: int ic_launcher
+com.example.LED.R$drawable: int rgb
+com.example.LED.R$id: int device_address
+com.example.LED.R$id: int device_name
+com.example.LED.R$id: int menu_connect
+com.example.LED.R$id: int menu_disconnect
+com.example.LED.R$id: int menu_scan
+com.example.LED.R$id: int menu_stop
+com.example.LED.R$id: int rgb
+com.example.LED.R$id: int setTime
+com.example.LED.R$id: int setself
+com.example.LED.R$layout: int listdevice
+com.example.LED.R$layout: int write
+com.example.LED.R$menu: int connect
+com.example.LED.R$menu: int menu
+com.example.LED.R$string: int app_name
+com.example.LED.R$string: int ble_not_supported
+com.example.LED.R$string: int connected
+com.example.LED.R$string: int disconnected
+com.example.LED.R$string: int error_bluetooth_not_supported
+com.example.LED.R$string: int label_data
+com.example.LED.R$string: int label_device_address
+com.example.LED.R$string: int label_state
+com.example.LED.R$string: int menu_connect
+com.example.LED.R$string: int menu_disconnect
+com.example.LED.R$string: int menu_scan
+com.example.LED.R$string: int menu_stop
+com.example.LED.R$string: int no_data
+com.example.LED.R$string: int title_devices
+com.example.LED.R$string: int unknown_characteristic
+com.example.LED.R$string: int unknown_device
+com.example.LED.R$string: int unknown_service
+com.example.LED.write
+com.example.LED.write: write()

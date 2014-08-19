@@ -1,0 +1,4757 @@
+_____________________________________________________________________
++ Program class: com/example/LED/BluetoothLeService
+  Superclass:    android/app/Service
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x21
+    = public class com.example.LED.BluetoothLeService extends android.app.Service
+
+Interfaces (count = 0):
+
+Constant Pool (count = 227):
+  + String [
+]
+  + String [%02X ]
+  + String [0000fff0-0000-1000-8000-00805f9b34fb]
+  + String [BluetoothAdapter not initialized]
+  + String [BluetoothAdapter not initialized or unspecified address.]
+  + String [Device not found.  Unable to connect.]
+  + String [Trying to create a new connection.]
+  + String [Trying to use an existing mBluetoothGatt for connection.]
+  + String [Unable to initialize BluetoothManager.]
+  + String [Unable to obtain a BluetoothAdapter.]
+  + String [bluetooth]
+  + String [com.example.bluetooth.le.EXTRA_DATA]
+  + Class [[B]
+  + Class [android/app/Service]
+  + Class [android/bluetooth/BluetoothAdapter]
+  + Class [android/bluetooth/BluetoothDevice]
+  + Class [android/bluetooth/BluetoothGatt]
+  + Class [android/bluetooth/BluetoothGattCharacteristic]
+  + Class [android/bluetooth/BluetoothGattService]
+  + Class [android/bluetooth/BluetoothManager]
+  + Class [android/content/Intent]
+  + Class [android/util/Log]
+  + Class [com/example/LED/BluetoothLeService]
+  + Class [com/example/LED/a]
+  + Class [com/example/LED/b]
+  + Class [java/lang/Byte]
+  + Class [java/lang/Class]
+  + Class [java/lang/Object]
+  + Class [java/lang/String]
+  + Class [java/lang/StringBuilder]
+  + Class [java/util/UUID]
+  + Fieldref [com/example/LED/BluetoothLeService.a Ljava/util/UUID;]
+  + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+  + Fieldref [com/example/LED/BluetoothLeService.c Landroid/bluetooth/BluetoothManager;]
+  + Fieldref [com/example/LED/BluetoothLeService.d Landroid/bluetooth/BluetoothAdapter;]
+  + Fieldref [com/example/LED/BluetoothLeService.e Ljava/lang/String;]
+  + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+  + Fieldref [com/example/LED/BluetoothLeService.g I]
+  + Fieldref [com/example/LED/BluetoothLeService.h Landroid/bluetooth/BluetoothGattCallback;]
+  + Fieldref [com/example/LED/BluetoothLeService.i Landroid/os/IBinder;]
+  + Methodref [android/app/Service.<init> ()V]
+  + Methodref [android/app/Service.onUnbind (Landroid/content/Intent;)Z]
+  + Methodref [android/bluetooth/BluetoothAdapter.getRemoteDevice (Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;]
+  + Methodref [android/bluetooth/BluetoothDevice.connectGatt (Landroid/content/Context;ZLandroid/bluetooth/BluetoothGattCallback;)Landroid/bluetooth/BluetoothGatt;]
+  + Methodref [android/bluetooth/BluetoothGatt.close ()V]
+  + Methodref [android/bluetooth/BluetoothGatt.connect ()Z]
+  + Methodref [android/bluetooth/BluetoothGatt.disconnect ()V]
+  + Methodref [android/bluetooth/BluetoothGatt.getService (Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattService;]
+  + Methodref [android/bluetooth/BluetoothGatt.writeCharacteristic (Landroid/bluetooth/BluetoothGattCharacteristic;)Z]
+  + Methodref [android/bluetooth/BluetoothGattCharacteristic.getValue ()[B]
+  + Methodref [android/bluetooth/BluetoothGattCharacteristic.setValue ([B)Z]
+  + Methodref [android/bluetooth/BluetoothGattService.getCharacteristic (Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattCharacteristic;]
+  + Methodref [android/bluetooth/BluetoothManager.getAdapter ()Landroid/bluetooth/BluetoothAdapter;]
+  + Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+  + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
+  + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
+  + Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/String;)I]
+  + Methodref [com/example/LED/BluetoothLeService.a (Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+  + Methodref [com/example/LED/BluetoothLeService.b (Ljava/lang/String;)V]
+  + Methodref [com/example/LED/BluetoothLeService.c ()V]
+  + Methodref [com/example/LED/BluetoothLeService.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  + Methodref [com/example/LED/BluetoothLeService.sendBroadcast (Landroid/content/Intent;)V]
+  + Methodref [com/example/LED/a.<init> (Lcom/example/LED/BluetoothLeService;)V]
+  + Methodref [com/example/LED/b.<init> (Lcom/example/LED/BluetoothLeService;)V]
+  + Methodref [java/lang/Byte.valueOf (B)Ljava/lang/Byte;]
+  + Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
+  + Methodref [java/lang/String.<init> ([B)V]
+  + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+  + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+  + Methodref [java/lang/StringBuilder.<init> ()V]
+  + Methodref [java/lang/StringBuilder.<init> (I)V]
+  + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+  + Methodref [java/util/UUID.fromString (Ljava/lang/String;)Ljava/util/UUID;]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (I)V]
+  + NameAndType [<init> (Lcom/example/LED/BluetoothLeService;)V]
+  + NameAndType [<init> (Ljava/lang/String;)V]
+  + NameAndType [<init> ([B)V]
+  + NameAndType [a (Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+  + NameAndType [a Ljava/util/UUID;]
+  + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + NameAndType [b (Ljava/lang/String;)V]
+  + NameAndType [b Ljava/lang/String;]
+  + NameAndType [c ()V]
+  + NameAndType [c Landroid/bluetooth/BluetoothManager;]
+  + NameAndType [close ()V]
+  + NameAndType [connect ()Z]
+  + NameAndType [connectGatt (Landroid/content/Context;ZLandroid/bluetooth/BluetoothGattCallback;)Landroid/bluetooth/BluetoothGatt;]
+  + NameAndType [d (Ljava/lang/String;Ljava/lang/String;)I]
+  + NameAndType [d Landroid/bluetooth/BluetoothAdapter;]
+  + NameAndType [disconnect ()V]
+  + NameAndType [e (Ljava/lang/String;Ljava/lang/String;)I]
+  + NameAndType [e Ljava/lang/String;]
+  + NameAndType [equals (Ljava/lang/Object;)Z]
+  + NameAndType [f Landroid/bluetooth/BluetoothGatt;]
+  + NameAndType [format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+  + NameAndType [fromString (Ljava/lang/String;)Ljava/util/UUID;]
+  + NameAndType [g I]
+  + NameAndType [getAdapter ()Landroid/bluetooth/BluetoothAdapter;]
+  + NameAndType [getCharacteristic (Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattCharacteristic;]
+  + NameAndType [getRemoteDevice (Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;]
+  + NameAndType [getService (Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattService;]
+  + NameAndType [getSimpleName ()Ljava/lang/String;]
+  + NameAndType [getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  + NameAndType [getValue ()[B]
+  + NameAndType [h Landroid/bluetooth/BluetoothGattCallback;]
+  + NameAndType [i Landroid/os/IBinder;]
+  + NameAndType [onUnbind (Landroid/content/Intent;)Z]
+  + NameAndType [putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + NameAndType [sendBroadcast (Landroid/content/Intent;)V]
+  + NameAndType [setValue ([B)Z]
+  + NameAndType [toString ()Ljava/lang/String;]
+  + NameAndType [valueOf (B)Ljava/lang/Byte;]
+  + NameAndType [w (Ljava/lang/String;Ljava/lang/String;)I]
+  + NameAndType [writeCharacteristic (Landroid/bluetooth/BluetoothGattCharacteristic;)Z]
+  + Utf8 [
+]
+  + Utf8 [%02X ]
+  + Utf8 [()Landroid/bluetooth/BluetoothAdapter;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [()Z]
+  + Utf8 [()[B]
+  + Utf8 [(B)Ljava/lang/Byte;]
+  + Utf8 [(I)V]
+  + Utf8 [(Landroid/bluetooth/BluetoothGattCharacteristic;)Z]
+  + Utf8 [(Landroid/content/Context;ZLandroid/bluetooth/BluetoothGattCallback;)Landroid/bluetooth/BluetoothGatt;]
+  + Utf8 [(Landroid/content/Intent;)Landroid/os/IBinder;]
+  + Utf8 [(Landroid/content/Intent;)V]
+  + Utf8 [(Landroid/content/Intent;)Z]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;)Landroid/bluetooth/BluetoothGatt;]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;)V]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;I)I]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;Ljava/lang/String;)V]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+  + Utf8 [(Ljava/lang/Object;)Z]
+  + Utf8 [(Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/Object;]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + Utf8 [(Ljava/lang/String;)Ljava/util/UUID;]
+  + Utf8 [(Ljava/lang/String;)V]
+  + Utf8 [(Ljava/lang/String;)Z]
+  + Utf8 [(Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/String;)I]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + Utf8 [(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+  + Utf8 [(Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattCharacteristic;]
+  + Utf8 [(Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattService;]
+  + Utf8 [(Ljava/util/UUID;[B)V]
+  + Utf8 [([B)V]
+  + Utf8 [([B)Z]
+  + Utf8 [0000fff0-0000-1000-8000-00805f9b34fb]
+  + Utf8 [<clinit>]
+  + Utf8 [<init>]
+  + Utf8 [BluetoothAdapter not initialized]
+  + Utf8 [BluetoothAdapter not initialized or unspecified address.]
+  + Utf8 [Code]
+  + Utf8 [Device not found.  Unable to connect.]
+  + Utf8 [I]
+  + Utf8 [Landroid/bluetooth/BluetoothAdapter;]
+  + Utf8 [Landroid/bluetooth/BluetoothGatt;]
+  + Utf8 [Landroid/bluetooth/BluetoothGattCallback;]
+  + Utf8 [Landroid/bluetooth/BluetoothManager;]
+  + Utf8 [Landroid/os/IBinder;]
+  + Utf8 [Ljava/lang/String;]
+  + Utf8 [Ljava/util/UUID;]
+  + Utf8 [StackMapTable]
+  + Utf8 [Trying to create a new connection.]
+  + Utf8 [Trying to use an existing mBluetoothGatt for connection.]
+  + Utf8 [Unable to initialize BluetoothManager.]
+  + Utf8 [Unable to obtain a BluetoothAdapter.]
+  + Utf8 [[B]
+  + Utf8 [a]
+  + Utf8 [android/app/Service]
+  + Utf8 [android/bluetooth/BluetoothAdapter]
+  + Utf8 [android/bluetooth/BluetoothDevice]
+  + Utf8 [android/bluetooth/BluetoothGatt]
+  + Utf8 [android/bluetooth/BluetoothGattCharacteristic]
+  + Utf8 [android/bluetooth/BluetoothGattService]
+  + Utf8 [android/bluetooth/BluetoothManager]
+  + Utf8 [android/content/Intent]
+  + Utf8 [android/util/Log]
+  + Utf8 [append]
+  + Utf8 [b]
+  + Utf8 [bluetooth]
+  + Utf8 [c]
+  + Utf8 [close]
+  + Utf8 [com.example.bluetooth.le.EXTRA_DATA]
+  + Utf8 [com/example/LED/BluetoothLeService]
+  + Utf8 [com/example/LED/a]
+  + Utf8 [com/example/LED/b]
+  + Utf8 [connect]
+  + Utf8 [connectGatt]
+  + Utf8 [d]
+  + Utf8 [disconnect]
+  + Utf8 [e]
+  + Utf8 [equals]
+  + Utf8 [f]
+  + Utf8 [format]
+  + Utf8 [fromString]
+  + Utf8 [g]
+  + Utf8 [getAdapter]
+  + Utf8 [getCharacteristic]
+  + Utf8 [getRemoteDevice]
+  + Utf8 [getService]
+  + Utf8 [getSimpleName]
+  + Utf8 [getSystemService]
+  + Utf8 [getValue]
+  + Utf8 [h]
+  + Utf8 [i]
+  + Utf8 [java/lang/Byte]
+  + Utf8 [java/lang/Class]
+  + Utf8 [java/lang/Object]
+  + Utf8 [java/lang/String]
+  + Utf8 [java/lang/StringBuilder]
+  + Utf8 [java/util/UUID]
+  + Utf8 [onBind]
+  + Utf8 [onUnbind]
+  + Utf8 [putExtra]
+  + Utf8 [sendBroadcast]
+  + Utf8 [setValue]
+  + Utf8 [toString]
+  + Utf8 [valueOf]
+  + Utf8 [w]
+  + Utf8 [writeCharacteristic]
+
+Fields (count = 9):
+  + Field:        b Ljava/lang/String;
+    Access flags: 0x1a
+      = private static final java.lang.String b
+  + Field:        c Landroid/bluetooth/BluetoothManager;
+    Access flags: 0x2
+      = private android.bluetooth.BluetoothManager c
+  + Field:        d Landroid/bluetooth/BluetoothAdapter;
+    Access flags: 0x2
+      = private android.bluetooth.BluetoothAdapter d
+  + Field:        e Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String e
+  + Field:        f Landroid/bluetooth/BluetoothGatt;
+    Access flags: 0x2
+      = private android.bluetooth.BluetoothGatt f
+  + Field:        g I
+    Access flags: 0x2
+      = private int g
+  + Field:        a Ljava/util/UUID;
+    Access flags: 0x19
+      = public static final java.util.UUID a
+  + Field:        h Landroid/bluetooth/BluetoothGattCallback;
+    Access flags: 0x12
+      = private final android.bluetooth.BluetoothGattCallback h
+  + Field:        i Landroid/os/IBinder;
+    Access flags: 0x12
+      = private final android.os.IBinder i
+
+Methods (count = 16):
+  - Method:       <init>()V
+    Access flags: 0x1
+      = public BluetoothLeService()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 34, locals = 1, stack = 4):
+      [0] aload_0 v0
+      [1] invokespecial #41
+        + Methodref [android/app/Service.<init> ()V]
+      [4] aload_0 v0
+      [5] iconst_0
+      [6] putfield #38
+        + Fieldref [com/example/LED/BluetoothLeService.g I]
+      [9] aload_0 v0
+      [10] new #24
+        + Class [com/example/LED/a]
+      [13] dup
+      [14] aload_0 v0
+      [15] invokespecial #64
+        + Methodref [com/example/LED/a.<init> (Lcom/example/LED/BluetoothLeService;)V]
+      [18] putfield #39
+        + Fieldref [com/example/LED/BluetoothLeService.h Landroid/bluetooth/BluetoothGattCallback;]
+      [21] aload_0 v0
+      [22] new #25
+        + Class [com/example/LED/b]
+      [25] dup
+      [26] aload_0 v0
+      [27] invokespecial #65
+        + Methodref [com/example/LED/b.<init> (Lcom/example/LED/BluetoothLeService;)V]
+      [30] putfield #40
+        + Fieldref [com/example/LED/BluetoothLeService.i Landroid/os/IBinder;]
+      [33] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       b(Ljava/lang/String;)V
+    Access flags: 0x2
+      = private void b(java.lang.String)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 15, locals = 3, stack = 3):
+      [0] new #21
+        + Class [android/content/Intent]
+      [3] dup
+      [4] aload_1 v1
+      [5] invokespecial #54
+        + Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+      [8] astore_2 v2
+      [9] aload_0 v0
+      [10] aload_2 v2
+      [11] invokevirtual #63
+        + Methodref [com/example/LED/BluetoothLeService.sendBroadcast (Landroid/content/Intent;)V]
+      [14] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V
+    Access flags: 0x2
+      = private void a(java.lang.String,android.bluetooth.BluetoothGattCharacteristic)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 141, locals = 10, stack = 6):
+      [0] new #21
+        + Class [android/content/Intent]
+      [3] dup
+      [4] aload_1 v1
+      [5] invokespecial #54
+        + Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+      [8] astore_3 v3
+      [9] aload_2 v2
+      [10] invokevirtual #50
+        + Methodref [android/bluetooth/BluetoothGattCharacteristic.getValue ()[B]
+      [13] astore v4
+      [15] aload v4
+      [17] ifnull +118 (target=135)
+      [20] aload v4
+      [22] arraylength
+      [23] ifle +112 (target=135)
+      [26] new #30
+        + Class [java/lang/StringBuilder]
+      [29] dup
+      [30] aload v4
+      [32] arraylength
+      [33] invokespecial #72
+        + Methodref [java/lang/StringBuilder.<init> (I)V]
+      [36] astore v5
+      [38] aload v4
+      [40] astore v6
+      [42] aload v6
+      [44] arraylength
+      [45] istore v7
+      [47] iconst_0
+      [48] istore v8
+      [50] iload v8
+      [52] iload v7
+      [54] ificmpge +39 (target=93)
+      [57] aload v6
+      [59] iload v8
+      [61] baload
+      [62] istore v9
+      [64] aload v5
+      [66] ldc #2
+        + String [%02X ]
+      [68] iconst_1
+      [69] anewarray #28
+        + Class [java/lang/Object]
+      [72] dup
+      [73] iconst_0
+      [74] iload v9
+      [76] invokestatic #66
+        + Methodref [java/lang/Byte.valueOf (B)Ljava/lang/Byte;]
+      [79] aastore
+      [80] invokestatic #70
+        + Methodref [java/lang/String.format (Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;]
+      [83] invokevirtual #73
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [86] pop
+      [87] iinc v8, 1
+      [90] goto -40 (target=50)
+      [93] aload_3 v3
+      [94] ldc #12
+        + String [com.example.bluetooth.le.EXTRA_DATA]
+      [96] new #30
+        + Class [java/lang/StringBuilder]
+      [99] dup
+      [100] invokespecial #71
+        + Methodref [java/lang/StringBuilder.<init> ()V]
+      [103] new #29
+        + Class [java/lang/String]
+      [106] dup
+      [107] aload v4
+      [109] invokespecial #68
+        + Methodref [java/lang/String.<init> ([B)V]
+      [112] invokevirtual #73
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [115] ldc #1
+        + String [
+]
+      [117] invokevirtual #73
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [120] aload v5
+      [122] invokevirtual #74
+        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [125] invokevirtual #73
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [128] invokevirtual #74
+        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [131] invokevirtual #55
+        + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+      [134] pop
+      [135] aload_0 v0
+      [136] aload_3 v3
+      [137] invokevirtual #63
+        + Methodref [com/example/LED/BluetoothLeService.sendBroadcast (Landroid/content/Intent;)V]
+      [140] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 3):
+        - [50] Var: [a:com/example/LED/BluetoothLeService][a:java/lang/String][a:android/bluetooth/BluetoothGattCharacteristic][a:android/content/Intent][a:[B][a:java/lang/StringBuilder][a:[B][i][i], Stack: 
+        - [93] Var: -3, Stack: (empty)
+        - [135] Var: -1, Stack: (empty)
+  + Method:       onBind(Landroid/content/Intent;)Landroid/os/IBinder;
+    Access flags: 0x1
+      = public android.os.IBinder onBind(android.content.Intent)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 2, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #40
+        + Fieldref [com/example/LED/BluetoothLeService.i Landroid/os/IBinder;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onUnbind(Landroid/content/Intent;)Z
+    Access flags: 0x1
+      = public boolean onUnbind(android.content.Intent)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] invokevirtual #61
+        + Methodref [com/example/LED/BluetoothLeService.c ()V]
+      [4] aload_0 v0
+      [5] aload_1 v1
+      [6] invokespecial #42
+        + Methodref [android/app/Service.onUnbind (Landroid/content/Intent;)Z]
+      [9] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()Z
+    Access flags: 0x1
+      = public boolean a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 69, locals = 1, stack = 3):
+      [0] aload_0 v0
+      [1] getfield #34
+        + Fieldref [com/example/LED/BluetoothLeService.c Landroid/bluetooth/BluetoothManager;]
+      [4] ifnonnull +34 (target=38)
+      [7] aload_0 v0
+      [8] aload_0 v0
+      [9] ldc #11
+        + String [bluetooth]
+      [11] invokevirtual #62
+        + Methodref [com/example/LED/BluetoothLeService.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+      [14] checkcast #20
+        + Class [android/bluetooth/BluetoothManager]
+      [17] putfield #34
+        + Fieldref [com/example/LED/BluetoothLeService.c Landroid/bluetooth/BluetoothManager;]
+      [20] aload_0 v0
+      [21] getfield #34
+        + Fieldref [com/example/LED/BluetoothLeService.c Landroid/bluetooth/BluetoothManager;]
+      [24] ifnonnull +14 (target=38)
+      [27] getstatic #33
+        + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+      [30] ldc #9
+        + String [Unable to initialize BluetoothManager.]
+      [32] invokestatic #57
+        + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
+      [35] pop
+      [36] iconst_0
+      [37] ireturn
+      [38] aload_0 v0
+      [39] aload_0 v0
+      [40] getfield #34
+        + Fieldref [com/example/LED/BluetoothLeService.c Landroid/bluetooth/BluetoothManager;]
+      [43] invokevirtual #53
+        + Methodref [android/bluetooth/BluetoothManager.getAdapter ()Landroid/bluetooth/BluetoothAdapter;]
+      [46] putfield #35
+        + Fieldref [com/example/LED/BluetoothLeService.d Landroid/bluetooth/BluetoothAdapter;]
+      [49] aload_0 v0
+      [50] getfield #35
+        + Fieldref [com/example/LED/BluetoothLeService.d Landroid/bluetooth/BluetoothAdapter;]
+      [53] ifnonnull +14 (target=67)
+      [56] getstatic #33
+        + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+      [59] ldc #10
+        + String [Unable to obtain a BluetoothAdapter.]
+      [61] invokestatic #57
+        + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
+      [64] pop
+      [65] iconst_0
+      [66] ireturn
+      [67] iconst_1
+      [68] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [38] Var: ..., Stack: (empty)
+        - [67] Var: ..., Stack: (empty)
+  + Method:       a(Ljava/lang/String;)Z
+    Access flags: 0x1
+      = public boolean a(java.lang.String)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 134, locals = 3, stack = 5):
+      [0] aload_0 v0
+      [1] getfield #35
+        + Fieldref [com/example/LED/BluetoothLeService.d Landroid/bluetooth/BluetoothAdapter;]
+      [4] ifnull +7 (target=11)
+      [7] aload_1 v1
+      [8] ifnonnull +14 (target=22)
+      [11] getstatic #33
+        + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+      [14] ldc #5
+        + String [BluetoothAdapter not initialized or unspecified address.]
+      [16] invokestatic #58
+        + Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/String;)I]
+      [19] pop
+      [20] iconst_0
+      [21] ireturn
+      [22] aload_0 v0
+      [23] getfield #36
+        + Fieldref [com/example/LED/BluetoothLeService.e Ljava/lang/String;]
+      [26] ifnull +49 (target=75)
+      [29] aload_1 v1
+      [30] aload_0 v0
+      [31] getfield #36
+        + Fieldref [com/example/LED/BluetoothLeService.e Ljava/lang/String;]
+      [34] invokevirtual #69
+        + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [37] ifeq +38 (target=75)
+      [40] aload_0 v0
+      [41] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [44] ifnull +31 (target=75)
+      [47] getstatic #33
+        + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+      [50] ldc #8
+        + String [Trying to use an existing mBluetoothGatt for connection.]
+      [52] invokestatic #56
+        + Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
+      [55] pop
+      [56] aload_0 v0
+      [57] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [60] invokevirtual #46
+        + Methodref [android/bluetooth/BluetoothGatt.connect ()Z]
+      [63] ifeq +10 (target=73)
+      [66] aload_0 v0
+      [67] iconst_1
+      [68] putfield #38
+        + Fieldref [com/example/LED/BluetoothLeService.g I]
+      [71] iconst_1
+      [72] ireturn
+      [73] iconst_0
+      [74] ireturn
+      [75] aload_0 v0
+      [76] getfield #35
+        + Fieldref [com/example/LED/BluetoothLeService.d Landroid/bluetooth/BluetoothAdapter;]
+      [79] aload_1 v1
+      [80] invokevirtual #43
+        + Methodref [android/bluetooth/BluetoothAdapter.getRemoteDevice (Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;]
+      [83] astore_2 v2
+      [84] aload_2 v2
+      [85] ifnonnull +14 (target=99)
+      [88] getstatic #33
+        + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+      [91] ldc #6
+        + String [Device not found.  Unable to connect.]
+      [93] invokestatic #58
+        + Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/String;)I]
+      [96] pop
+      [97] iconst_0
+      [98] ireturn
+      [99] aload_0 v0
+      [100] aload_2 v2
+      [101] aload_0 v0
+      [102] iconst_0
+      [103] aload_0 v0
+      [104] getfield #39
+        + Fieldref [com/example/LED/BluetoothLeService.h Landroid/bluetooth/BluetoothGattCallback;]
+      [107] invokevirtual #44
+        + Methodref [android/bluetooth/BluetoothDevice.connectGatt (Landroid/content/Context;ZLandroid/bluetooth/BluetoothGattCallback;)Landroid/bluetooth/BluetoothGatt;]
+      [110] putfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [113] getstatic #33
+        + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+      [116] ldc #7
+        + String [Trying to create a new connection.]
+      [118] invokestatic #56
+        + Methodref [android/util/Log.d (Ljava/lang/String;Ljava/lang/String;)I]
+      [121] pop
+      [122] aload_0 v0
+      [123] aload_1 v1
+      [124] putfield #36
+        + Fieldref [com/example/LED/BluetoothLeService.e Ljava/lang/String;]
+      [127] aload_0 v0
+      [128] iconst_1
+      [129] putfield #38
+        + Fieldref [com/example/LED/BluetoothLeService.g I]
+      [132] iconst_1
+      [133] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 5):
+        - [11] Var: ..., Stack: (empty)
+        - [22] Var: ..., Stack: (empty)
+        - [73] Var: ..., Stack: (empty)
+        - [75] Var: ..., Stack: (empty)
+        - [99] Var: ...[a:android/bluetooth/BluetoothDevice], Stack: (empty)
+  + Method:       b()V
+    Access flags: 0x1
+      = public void b()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 32, locals = 1, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #35
+        + Fieldref [com/example/LED/BluetoothLeService.d Landroid/bluetooth/BluetoothAdapter;]
+      [4] ifnull +10 (target=14)
+      [7] aload_0 v0
+      [8] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [11] ifnonnull +13 (target=24)
+      [14] getstatic #33
+        + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+      [17] ldc #4
+        + String [BluetoothAdapter not initialized]
+      [19] invokestatic #58
+        + Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/String;)I]
+      [22] pop
+      [23] return
+      [24] aload_0 v0
+      [25] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [28] invokevirtual #47
+        + Methodref [android/bluetooth/BluetoothGatt.disconnect ()V]
+      [31] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [14] Var: ..., Stack: (empty)
+        - [24] Var: ..., Stack: (empty)
+  + Method:       c()V
+    Access flags: 0x1
+      = public void c()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 21, locals = 1, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [4] ifnonnull +4 (target=8)
+      [7] return
+      [8] aload_0 v0
+      [9] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [12] invokevirtual #45
+        + Methodref [android/bluetooth/BluetoothGatt.close ()V]
+      [15] aload_0 v0
+      [16] aconst_null
+      [17] putfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [20] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 1):
+        - [8] Var: ..., Stack: (empty)
+  + Method:       a(Ljava/util/UUID;[B)V
+    Access flags: 0x1
+      = public void a(java.util.UUID,byte[])
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 43, locals = 4, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [4] ifnonnull +4 (target=8)
+      [7] return
+      [8] aload_0 v0
+      [9] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [12] getstatic #32
+        + Fieldref [com/example/LED/BluetoothLeService.a Ljava/util/UUID;]
+      [15] invokevirtual #48
+        + Methodref [android/bluetooth/BluetoothGatt.getService (Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattService;]
+      [18] aload_1 v1
+      [19] invokevirtual #52
+        + Methodref [android/bluetooth/BluetoothGattService.getCharacteristic (Ljava/util/UUID;)Landroid/bluetooth/BluetoothGattCharacteristic;]
+      [22] astore_3 v3
+      [23] aload_3 v3
+      [24] ifnull +18 (target=42)
+      [27] aload_3 v3
+      [28] aload_2 v2
+      [29] invokevirtual #51
+        + Methodref [android/bluetooth/BluetoothGattCharacteristic.setValue ([B)Z]
+      [32] pop
+      [33] aload_0 v0
+      [34] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [37] aload_3 v3
+      [38] invokevirtual #49
+        + Methodref [android/bluetooth/BluetoothGatt.writeCharacteristic (Landroid/bluetooth/BluetoothGattCharacteristic;)Z]
+      [41] pop
+      [42] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [8] Var: ..., Stack: (empty)
+        - [42] Var: ...[a:android/bluetooth/BluetoothGattCharacteristic], Stack: (empty)
+  + Method:       a(Lcom/example/LED/BluetoothLeService;I)I
+    Access flags: 0x1008
+      = static synthetic int a(com.example.LED.BluetoothLeService,int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 7, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] iload_1 v1
+      [2] dup_x1
+      [3] putfield #38
+        + Fieldref [com/example/LED/BluetoothLeService.g I]
+      [6] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lcom/example/LED/BluetoothLeService;Ljava/lang/String;)V
+    Access flags: 0x1008
+      = static synthetic void a(com.example.LED.BluetoothLeService,java.lang.String)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 6, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] invokespecial #60
+        + Methodref [com/example/LED/BluetoothLeService.b (Ljava/lang/String;)V]
+      [5] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       d()Ljava/lang/String;
+    Access flags: 0x1008
+      = static synthetic java.lang.String d()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 4, locals = 0, stack = 1):
+      [0] getstatic #33
+        + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+      [3] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lcom/example/LED/BluetoothLeService;)Landroid/bluetooth/BluetoothGatt;
+    Access flags: 0x1008
+      = static synthetic android.bluetooth.BluetoothGatt a(com.example.LED.BluetoothLeService)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #37
+        + Fieldref [com/example/LED/BluetoothLeService.f Landroid/bluetooth/BluetoothGatt;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lcom/example/LED/BluetoothLeService;Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V
+    Access flags: 0x1008
+      = static synthetic void a(com.example.LED.BluetoothLeService,java.lang.String,android.bluetooth.BluetoothGattCharacteristic)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 7, locals = 3, stack = 3):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] aload_2 v2
+      [3] invokespecial #59
+        + Methodref [com/example/LED/BluetoothLeService.a (Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+      [6] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  - Method:       <clinit>()V
+    Access flags: 0x8
+      = static void <clinit>()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 17, locals = 0, stack = 1):
+      [0] ldc #23
+        + Class [com/example/LED/BluetoothLeService]
+      [2] invokevirtual #67
+        + Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
+      [5] putstatic #33
+        + Fieldref [com/example/LED/BluetoothLeService.b Ljava/lang/String;]
+      [8] ldc #3
+        + String [0000fff0-0000-1000-8000-00805f9b34fb]
+      [10] invokestatic #75
+        + Methodref [java/util/UUID.fromString (Ljava/lang/String;)Ljava/util/UUID;]
+      [13] putstatic #32
+        + Fieldref [com/example/LED/BluetoothLeService.a Ljava/util/UUID;]
+      [16] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/a
+  Superclass:    android/bluetooth/BluetoothGattCallback
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.a extends android.bluetooth.BluetoothGattCallback
+
+Interfaces (count = 0):
+
+Constant Pool (count = 89):
+  + String [Attempting to start service discovery:]
+  + String [Connected to GATT server.]
+  + String [Disconnected from GATT server.]
+  + String [com.example.bluetooth.le.ACTION_DATA_AVAILABLE]
+  + String [com.example.bluetooth.le.ACTION_GATT_CONNECTED]
+  + String [com.example.bluetooth.le.ACTION_GATT_DISCONNECTED]
+  + String [com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED]
+  + String [onServicesDiscovered received: ]
+  + Class [android/bluetooth/BluetoothGatt]
+  + Class [android/bluetooth/BluetoothGattCallback]
+  + Class [android/util/Log]
+  + Class [com/example/LED/BluetoothLeService]
+  + Class [com/example/LED/a]
+  + Class [java/lang/StringBuilder]
+  + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+  + Methodref [android/bluetooth/BluetoothGatt.discoverServices ()Z]
+  + Methodref [android/bluetooth/BluetoothGattCallback.<init> ()V]
+  + Methodref [android/util/Log.i (Ljava/lang/String;Ljava/lang/String;)I]
+  + Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/String;)I]
+  + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;)Landroid/bluetooth/BluetoothGatt;]
+  + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;I)I]
+  + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;Ljava/lang/String;)V]
+  + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+  + Methodref [com/example/LED/BluetoothLeService.d ()Ljava/lang/String;]
+  + Methodref [java/lang/StringBuilder.<init> ()V]
+  + Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
+  + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + Methodref [java/lang/StringBuilder.append (Z)Ljava/lang/StringBuilder;]
+  + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+  + NameAndType [<init> ()V]
+  + NameAndType [a (Lcom/example/LED/BluetoothLeService;)Landroid/bluetooth/BluetoothGatt;]
+  + NameAndType [a (Lcom/example/LED/BluetoothLeService;I)I]
+  + NameAndType [a (Lcom/example/LED/BluetoothLeService;Ljava/lang/String;)V]
+  + NameAndType [a (Lcom/example/LED/BluetoothLeService;Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+  + NameAndType [a Lcom/example/LED/BluetoothLeService;]
+  + NameAndType [append (I)Ljava/lang/StringBuilder;]
+  + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + NameAndType [append (Z)Ljava/lang/StringBuilder;]
+  + NameAndType [d ()Ljava/lang/String;]
+  + NameAndType [discoverServices ()Z]
+  + NameAndType [i (Ljava/lang/String;Ljava/lang/String;)I]
+  + NameAndType [toString ()Ljava/lang/String;]
+  + NameAndType [w (Ljava/lang/String;Ljava/lang/String;)I]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [()Z]
+  + Utf8 [(I)Ljava/lang/StringBuilder;]
+  + Utf8 [(Landroid/bluetooth/BluetoothGatt;I)V]
+  + Utf8 [(Landroid/bluetooth/BluetoothGatt;II)V]
+  + Utf8 [(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+  + Utf8 [(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;I)V]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;)Landroid/bluetooth/BluetoothGatt;]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;)V]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;I)I]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;Ljava/lang/String;)V]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/String;)I]
+  + Utf8 [(Z)Ljava/lang/StringBuilder;]
+  + Utf8 [<init>]
+  + Utf8 [Attempting to start service discovery:]
+  + Utf8 [Code]
+  + Utf8 [Connected to GATT server.]
+  + Utf8 [Disconnected from GATT server.]
+  + Utf8 [Lcom/example/LED/BluetoothLeService;]
+  + Utf8 [StackMapTable]
+  + Utf8 [a]
+  + Utf8 [android/bluetooth/BluetoothGatt]
+  + Utf8 [android/bluetooth/BluetoothGattCallback]
+  + Utf8 [android/util/Log]
+  + Utf8 [append]
+  + Utf8 [com.example.bluetooth.le.ACTION_DATA_AVAILABLE]
+  + Utf8 [com.example.bluetooth.le.ACTION_GATT_CONNECTED]
+  + Utf8 [com.example.bluetooth.le.ACTION_GATT_DISCONNECTED]
+  + Utf8 [com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED]
+  + Utf8 [com/example/LED/BluetoothLeService]
+  + Utf8 [com/example/LED/a]
+  + Utf8 [d]
+  + Utf8 [discoverServices]
+  + Utf8 [i]
+  + Utf8 [java/lang/StringBuilder]
+  + Utf8 [onCharacteristicChanged]
+  + Utf8 [onCharacteristicWrite]
+  + Utf8 [onConnectionStateChange]
+  + Utf8 [onServicesDiscovered]
+  + Utf8 [onServicesDiscovered received: ]
+  + Utf8 [toString]
+  + Utf8 [w]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/BluetoothLeService;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.BluetoothLeService a
+
+Methods (count = 5):
+  - Method:       <init>(Lcom/example/LED/BluetoothLeService;)V
+    Access flags: 0x0
+      = a(com.example.LED.BluetoothLeService)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #15
+        + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+      [5] aload_0 v0
+      [6] invokespecial #17
+        + Methodref [android/bluetooth/BluetoothGattCallback.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onConnectionStateChange(Landroid/bluetooth/BluetoothGatt;II)V
+    Access flags: 0x1
+      = public void onConnectionStateChange(android.bluetooth.BluetoothGatt,int,int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 110, locals = 5, stack = 3):
+      [0] iload_3 v3
+      [1] iconst_2
+      [2] ificmpne +72 (target=74)
+      [5] ldc #5
+        + String [com.example.bluetooth.le.ACTION_GATT_CONNECTED]
+      [7] astore v4
+      [9] aload_0 v0
+      [10] getfield #15
+        + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+      [13] iconst_2
+      [14] invokestatic #21
+        + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;I)I]
+      [17] pop
+      [18] aload_0 v0
+      [19] getfield #15
+        + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+      [22] aload v4
+      [24] invokestatic #22
+        + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;Ljava/lang/String;)V]
+      [27] invokestatic #24
+        + Methodref [com/example/LED/BluetoothLeService.d ()Ljava/lang/String;]
+      [30] ldc #2
+        + String [Connected to GATT server.]
+      [32] invokestatic #18
+        + Methodref [android/util/Log.i (Ljava/lang/String;Ljava/lang/String;)I]
+      [35] pop
+      [36] invokestatic #24
+        + Methodref [com/example/LED/BluetoothLeService.d ()Ljava/lang/String;]
+      [39] new #14
+        + Class [java/lang/StringBuilder]
+      [42] dup
+      [43] invokespecial #25
+        + Methodref [java/lang/StringBuilder.<init> ()V]
+      [46] ldc #1
+        + String [Attempting to start service discovery:]
+      [48] invokevirtual #27
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [51] aload_0 v0
+      [52] getfield #15
+        + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+      [55] invokestatic #20
+        + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;)Landroid/bluetooth/BluetoothGatt;]
+      [58] invokevirtual #16
+        + Methodref [android/bluetooth/BluetoothGatt.discoverServices ()Z]
+      [61] invokevirtual #28
+        + Methodref [java/lang/StringBuilder.append (Z)Ljava/lang/StringBuilder;]
+      [64] invokevirtual #29
+        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [67] invokestatic #18
+        + Methodref [android/util/Log.i (Ljava/lang/String;Ljava/lang/String;)I]
+      [70] pop
+      [71] goto +38 (target=109)
+      [74] iload_3 v3
+      [75] ifne +34 (target=109)
+      [78] ldc #6
+        + String [com.example.bluetooth.le.ACTION_GATT_DISCONNECTED]
+      [80] astore v4
+      [82] aload_0 v0
+      [83] getfield #15
+        + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+      [86] iconst_0
+      [87] invokestatic #21
+        + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;I)I]
+      [90] pop
+      [91] invokestatic #24
+        + Methodref [com/example/LED/BluetoothLeService.d ()Ljava/lang/String;]
+      [94] ldc #3
+        + String [Disconnected from GATT server.]
+      [96] invokestatic #18
+        + Methodref [android/util/Log.i (Ljava/lang/String;Ljava/lang/String;)I]
+      [99] pop
+      [100] aload_0 v0
+      [101] getfield #15
+        + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+      [104] aload v4
+      [106] invokestatic #22
+        + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;Ljava/lang/String;)V]
+      [109] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [74] Var: ..., Stack: (empty)
+        - [109] Var: ..., Stack: (empty)
+  + Method:       onServicesDiscovered(Landroid/bluetooth/BluetoothGatt;I)V
+    Access flags: 0x1
+      = public void onServicesDiscovered(android.bluetooth.BluetoothGatt,int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 43, locals = 3, stack = 3):
+      [0] iload_2 v2
+      [1] ifne +15 (target=16)
+      [4] aload_0 v0
+      [5] getfield #15
+        + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+      [8] ldc #7
+        + String [com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED]
+      [10] invokestatic #22
+        + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;Ljava/lang/String;)V]
+      [13] goto +29 (target=42)
+      [16] invokestatic #24
+        + Methodref [com/example/LED/BluetoothLeService.d ()Ljava/lang/String;]
+      [19] new #14
+        + Class [java/lang/StringBuilder]
+      [22] dup
+      [23] invokespecial #25
+        + Methodref [java/lang/StringBuilder.<init> ()V]
+      [26] ldc #8
+        + String [onServicesDiscovered received: ]
+      [28] invokevirtual #27
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [31] iload_2 v2
+      [32] invokevirtual #26
+        + Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
+      [35] invokevirtual #29
+        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [38] invokestatic #19
+        + Methodref [android/util/Log.w (Ljava/lang/String;Ljava/lang/String;)I]
+      [41] pop
+      [42] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [16] Var: ..., Stack: (empty)
+        - [42] Var: ..., Stack: (empty)
+  + Method:       onCharacteristicChanged(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;)V
+    Access flags: 0x1
+      = public void onCharacteristicChanged(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 11, locals = 3, stack = 3):
+      [0] aload_0 v0
+      [1] getfield #15
+        + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+      [4] ldc #4
+        + String [com.example.bluetooth.le.ACTION_DATA_AVAILABLE]
+      [6] aload_2 v2
+      [7] invokestatic #23
+        + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+      [10] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onCharacteristicWrite(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;I)V
+    Access flags: 0x1
+      = public void onCharacteristicWrite(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic,int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 11, locals = 4, stack = 3):
+      [0] aload_0 v0
+      [1] getfield #15
+        + Fieldref [com/example/LED/a.a Lcom/example/LED/BluetoothLeService;]
+      [4] ldc #4
+        + String [com.example.bluetooth.le.ACTION_DATA_AVAILABLE]
+      [6] aload_2 v2
+      [7] invokestatic #23
+        + Methodref [com/example/LED/BluetoothLeService.a (Lcom/example/LED/BluetoothLeService;Ljava/lang/String;Landroid/bluetooth/BluetoothGattCharacteristic;)V]
+      [10] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/b
+  Superclass:    android/os/Binder
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x21
+    = public class com.example.LED.b extends android.os.Binder
+
+Interfaces (count = 0):
+
+Constant Pool (count = 16):
+  + Class [android/os/Binder]
+  + Class [com/example/LED/b]
+  + Fieldref [com/example/LED/b.a Lcom/example/LED/BluetoothLeService;]
+  + Methodref [android/os/Binder.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a Lcom/example/LED/BluetoothLeService;]
+  + Utf8 [()Lcom/example/LED/BluetoothLeService;]
+  + Utf8 [()V]
+  + Utf8 [(Lcom/example/LED/BluetoothLeService;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Lcom/example/LED/BluetoothLeService;]
+  + Utf8 [a]
+  + Utf8 [android/os/Binder]
+  + Utf8 [com/example/LED/b]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/BluetoothLeService;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.BluetoothLeService a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/BluetoothLeService;)V
+    Access flags: 0x1
+      = public b(com.example.LED.BluetoothLeService)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #3
+        + Fieldref [com/example/LED/b.a Lcom/example/LED/BluetoothLeService;]
+      [5] aload_0 v0
+      [6] invokespecial #4
+        + Methodref [android/os/Binder.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()Lcom/example/LED/BluetoothLeService;
+    Access flags: 0x0
+      = com.example.LED.BluetoothLeService a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #3
+        + Fieldref [com/example/LED/b.a Lcom/example/LED/BluetoothLeService;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/DeviceScanActivity
+  Superclass:    android/app/ListActivity
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x21
+    = public class com.example.LED.DeviceScanActivity extends android.app.ListActivity
+
+Interfaces (count = 0):
+
+Constant Pool (count = 220):
+  + Integer [2130968577]
+  + Integer [2130968585]
+  + Integer [2131034113]
+  + Integer [2131099655]
+  + Integer [2131099656]
+  + String [01111481张杨华-蓝牙LED灯]
+  + String [DEVICE_ADDRESS]
+  + String [DEVICE_NAME]
+  + String [android.bluetooth.adapter.action.REQUEST_ENABLE]
+  + String [android.hardware.bluetooth_le]
+  + String [bluetooth]
+  + Class [android/app/ActionBar]
+  + Class [android/app/ListActivity]
+  + Class [android/bluetooth/BluetoothAdapter]
+  + Class [android/bluetooth/BluetoothDevice]
+  + Class [android/bluetooth/BluetoothManager]
+  + Class [android/content/Intent]
+  + Class [android/content/pm/PackageManager]
+  + Class [android/os/Handler]
+  + Class [android/view/Menu]
+  + Class [android/view/MenuInflater]
+  + Class [android/view/MenuItem]
+  + Class [android/widget/Toast]
+  + Class [com/example/LED/DeviceScanActivity]
+  + Class [com/example/LED/c]
+  + Class [com/example/LED/d]
+  + Class [com/example/LED/f]
+  + Class [com/example/LED/write]
+  + Long [10000]
+  + Fieldref [com/example/LED/DeviceScanActivity.a Lcom/example/LED/f;]
+  + Fieldref [com/example/LED/DeviceScanActivity.b Landroid/bluetooth/BluetoothAdapter;]
+  + Fieldref [com/example/LED/DeviceScanActivity.c Z]
+  + Fieldref [com/example/LED/DeviceScanActivity.d Landroid/os/Handler;]
+  + Fieldref [com/example/LED/DeviceScanActivity.e Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+  + Methodref [android/app/ActionBar.setTitle (Ljava/lang/CharSequence;)V]
+  + Methodref [android/app/ListActivity.<init> ()V]
+  + Methodref [android/app/ListActivity.onActivityResult (IILandroid/content/Intent;)V]
+  + Methodref [android/app/ListActivity.onCreate (Landroid/os/Bundle;)V]
+  + Methodref [android/app/ListActivity.onPause ()V]
+  + Methodref [android/app/ListActivity.onResume ()V]
+  + Methodref [android/bluetooth/BluetoothAdapter.isEnabled ()Z]
+  + Methodref [android/bluetooth/BluetoothAdapter.startLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)Z]
+  + Methodref [android/bluetooth/BluetoothAdapter.stopLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)V]
+  + Methodref [android/bluetooth/BluetoothDevice.getAddress ()Ljava/lang/String;]
+  + Methodref [android/bluetooth/BluetoothDevice.getName ()Ljava/lang/String;]
+  + Methodref [android/bluetooth/BluetoothManager.getAdapter ()Landroid/bluetooth/BluetoothAdapter;]
+  + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
+  + Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+  + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + Methodref [android/content/pm/PackageManager.hasSystemFeature (Ljava/lang/String;)Z]
+  + Methodref [android/os/Handler.<init> ()V]
+  + Methodref [android/os/Handler.postDelayed (Ljava/lang/Runnable;J)Z]
+  + Methodref [android/view/MenuInflater.inflate (ILandroid/view/Menu;)V]
+  + Methodref [android/widget/Toast.makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
+  + Methodref [android/widget/Toast.show ()V]
+  + Methodref [com/example/LED/DeviceScanActivity.a (Z)V]
+  + Methodref [com/example/LED/DeviceScanActivity.finish ()V]
+  + Methodref [com/example/LED/DeviceScanActivity.getActionBar ()Landroid/app/ActionBar;]
+  + Methodref [com/example/LED/DeviceScanActivity.getMenuInflater ()Landroid/view/MenuInflater;]
+  + Methodref [com/example/LED/DeviceScanActivity.getPackageManager ()Landroid/content/pm/PackageManager;]
+  + Methodref [com/example/LED/DeviceScanActivity.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  + Methodref [com/example/LED/DeviceScanActivity.invalidateOptionsMenu ()V]
+  + Methodref [com/example/LED/DeviceScanActivity.setListAdapter (Landroid/widget/ListAdapter;)V]
+  + Methodref [com/example/LED/DeviceScanActivity.startActivity (Landroid/content/Intent;)V]
+  + Methodref [com/example/LED/DeviceScanActivity.startActivityForResult (Landroid/content/Intent;I)V]
+  + Methodref [com/example/LED/c.<init> (Lcom/example/LED/DeviceScanActivity;)V]
+  + Methodref [com/example/LED/d.<init> (Lcom/example/LED/DeviceScanActivity;)V]
+  + Methodref [com/example/LED/f.<init> (Lcom/example/LED/DeviceScanActivity;)V]
+  + Methodref [com/example/LED/f.a ()V]
+  + Methodref [com/example/LED/f.a (I)Landroid/bluetooth/BluetoothDevice;]
+  + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+  + InterfaceMethodref [android/view/MenuItem.getItemId ()I]
+  + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (Landroid/content/Context;Ljava/lang/Class;)V]
+  + NameAndType [<init> (Lcom/example/LED/DeviceScanActivity;)V]
+  + NameAndType [<init> (Ljava/lang/String;)V]
+  + NameAndType [a ()V]
+  + NameAndType [a (I)Landroid/bluetooth/BluetoothDevice;]
+  + NameAndType [a (Z)V]
+  + NameAndType [a Lcom/example/LED/f;]
+  + NameAndType [b Landroid/bluetooth/BluetoothAdapter;]
+  + NameAndType [c Z]
+  + NameAndType [d Landroid/os/Handler;]
+  + NameAndType [e Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+  + NameAndType [findItem (I)Landroid/view/MenuItem;]
+  + NameAndType [finish ()V]
+  + NameAndType [getActionBar ()Landroid/app/ActionBar;]
+  + NameAndType [getAdapter ()Landroid/bluetooth/BluetoothAdapter;]
+  + NameAndType [getAddress ()Ljava/lang/String;]
+  + NameAndType [getItemId ()I]
+  + NameAndType [getMenuInflater ()Landroid/view/MenuInflater;]
+  + NameAndType [getName ()Ljava/lang/String;]
+  + NameAndType [getPackageManager ()Landroid/content/pm/PackageManager;]
+  + NameAndType [getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+  + NameAndType [hasSystemFeature (Ljava/lang/String;)Z]
+  + NameAndType [inflate (ILandroid/view/Menu;)V]
+  + NameAndType [invalidateOptionsMenu ()V]
+  + NameAndType [isEnabled ()Z]
+  + NameAndType [makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
+  + NameAndType [onActivityResult (IILandroid/content/Intent;)V]
+  + NameAndType [onCreate (Landroid/os/Bundle;)V]
+  + NameAndType [onPause ()V]
+  + NameAndType [onResume ()V]
+  + NameAndType [postDelayed (Ljava/lang/Runnable;J)Z]
+  + NameAndType [putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + NameAndType [setListAdapter (Landroid/widget/ListAdapter;)V]
+  + NameAndType [setTitle (Ljava/lang/CharSequence;)V]
+  + NameAndType [setVisible (Z)Landroid/view/MenuItem;]
+  + NameAndType [show ()V]
+  + NameAndType [startActivity (Landroid/content/Intent;)V]
+  + NameAndType [startActivityForResult (Landroid/content/Intent;I)V]
+  + NameAndType [startLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)Z]
+  + NameAndType [stopLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)V]
+  + Utf8 [()I]
+  + Utf8 [()Landroid/app/ActionBar;]
+  + Utf8 [()Landroid/bluetooth/BluetoothAdapter;]
+  + Utf8 [()Landroid/content/pm/PackageManager;]
+  + Utf8 [()Landroid/view/MenuInflater;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [()Z]
+  + Utf8 [(I)Landroid/bluetooth/BluetoothDevice;]
+  + Utf8 [(I)Landroid/view/MenuItem;]
+  + Utf8 [(IILandroid/content/Intent;)V]
+  + Utf8 [(ILandroid/view/Menu;)V]
+  + Utf8 [(Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)V]
+  + Utf8 [(Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)Z]
+  + Utf8 [(Landroid/content/Context;II)Landroid/widget/Toast;]
+  + Utf8 [(Landroid/content/Context;Ljava/lang/Class;)V]
+  + Utf8 [(Landroid/content/Intent;)V]
+  + Utf8 [(Landroid/content/Intent;I)V]
+  + Utf8 [(Landroid/os/Bundle;)V]
+  + Utf8 [(Landroid/view/Menu;)Z]
+  + Utf8 [(Landroid/view/MenuItem;)Z]
+  + Utf8 [(Landroid/widget/ListAdapter;)V]
+  + Utf8 [(Landroid/widget/ListView;Landroid/view/View;IJ)V]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter;]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)Lcom/example/LED/f;]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)V]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;Z)Z]
+  + Utf8 [(Ljava/lang/CharSequence;)V]
+  + Utf8 [(Ljava/lang/Runnable;J)Z]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/Object;]
+  + Utf8 [(Ljava/lang/String;)V]
+  + Utf8 [(Ljava/lang/String;)Z]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+  + Utf8 [(Z)Landroid/view/MenuItem;]
+  + Utf8 [(Z)V]
+  + Utf8 [01111481张杨华-蓝牙LED灯]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [DEVICE_ADDRESS]
+  + Utf8 [DEVICE_NAME]
+  + Utf8 [Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+  + Utf8 [Landroid/bluetooth/BluetoothAdapter;]
+  + Utf8 [Landroid/os/Handler;]
+  + Utf8 [Lcom/example/LED/f;]
+  + Utf8 [StackMapTable]
+  + Utf8 [Z]
+  + Utf8 [a]
+  + Utf8 [android.bluetooth.adapter.action.REQUEST_ENABLE]
+  + Utf8 [android.hardware.bluetooth_le]
+  + Utf8 [android/app/ActionBar]
+  + Utf8 [android/app/ListActivity]
+  + Utf8 [android/bluetooth/BluetoothAdapter]
+  + Utf8 [android/bluetooth/BluetoothDevice]
+  + Utf8 [android/bluetooth/BluetoothManager]
+  + Utf8 [android/content/Intent]
+  + Utf8 [android/content/pm/PackageManager]
+  + Utf8 [android/os/Handler]
+  + Utf8 [android/view/Menu]
+  + Utf8 [android/view/MenuInflater]
+  + Utf8 [android/view/MenuItem]
+  + Utf8 [android/widget/Toast]
+  + Utf8 [b]
+  + Utf8 [bluetooth]
+  + Utf8 [c]
+  + Utf8 [com/example/LED/DeviceScanActivity]
+  + Utf8 [com/example/LED/c]
+  + Utf8 [com/example/LED/d]
+  + Utf8 [com/example/LED/f]
+  + Utf8 [com/example/LED/write]
+  + Utf8 [d]
+  + Utf8 [e]
+  + Utf8 [findItem]
+  + Utf8 [finish]
+  + Utf8 [getActionBar]
+  + Utf8 [getAdapter]
+  + Utf8 [getAddress]
+  + Utf8 [getItemId]
+  + Utf8 [getMenuInflater]
+  + Utf8 [getName]
+  + Utf8 [getPackageManager]
+  + Utf8 [getSystemService]
+  + Utf8 [hasSystemFeature]
+  + Utf8 [inflate]
+  + Utf8 [invalidateOptionsMenu]
+  + Utf8 [isEnabled]
+  + Utf8 [makeText]
+  + Utf8 [onActivityResult]
+  + Utf8 [onCreate]
+  + Utf8 [onCreateOptionsMenu]
+  + Utf8 [onListItemClick]
+  + Utf8 [onOptionsItemSelected]
+  + Utf8 [onPause]
+  + Utf8 [onResume]
+  + Utf8 [postDelayed]
+  + Utf8 [putExtra]
+  + Utf8 [setListAdapter]
+  + Utf8 [setTitle]
+  + Utf8 [setVisible]
+  + Utf8 [show]
+  + Utf8 [startActivity]
+  + Utf8 [startActivityForResult]
+  + Utf8 [startLeScan]
+  + Utf8 [stopLeScan]
+
+Fields (count = 5):
+  + Field:        a Lcom/example/LED/f;
+    Access flags: 0x2
+      = private com.example.LED.f a
+  + Field:        b Landroid/bluetooth/BluetoothAdapter;
+    Access flags: 0x2
+      = private android.bluetooth.BluetoothAdapter b
+  + Field:        c Z
+    Access flags: 0x2
+      = private boolean c
+  + Field:        d Landroid/os/Handler;
+    Access flags: 0x2
+      = private android.os.Handler d
+  + Field:        e Landroid/bluetooth/BluetoothAdapter$LeScanCallback;
+    Access flags: 0x2
+      = private android.bluetooth.BluetoothAdapter$LeScanCallback e
+
+Methods (count = 13):
+  - Method:       <init>()V
+    Access flags: 0x1
+      = public DeviceScanActivity()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 17, locals = 1, stack = 4):
+      [0] aload_0 v0
+      [1] invokespecial #37
+        + Methodref [android/app/ListActivity.<init> ()V]
+      [4] aload_0 v0
+      [5] new #26
+        + Class [com/example/LED/d]
+      [8] dup
+      [9] aload_0 v0
+      [10] invokespecial #68
+        + Methodref [com/example/LED/d.<init> (Lcom/example/LED/DeviceScanActivity;)V]
+      [13] putfield #35
+        + Fieldref [com/example/LED/DeviceScanActivity.e Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+      [16] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onCreate(Landroid/os/Bundle;)V
+    Access flags: 0x1
+      = public void onCreate(android.os.Bundle)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 92, locals = 3, stack = 3):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] invokespecial #39
+        + Methodref [android/app/ListActivity.onCreate (Landroid/os/Bundle;)V]
+      [5] aload_0 v0
+      [6] invokevirtual #59
+        + Methodref [com/example/LED/DeviceScanActivity.getActionBar ()Landroid/app/ActionBar;]
+      [9] ldc #6
+        + String [01111481张杨华-蓝牙LED灯]
+      [11] invokevirtual #36
+        + Methodref [android/app/ActionBar.setTitle (Ljava/lang/CharSequence;)V]
+      [14] aload_0 v0
+      [15] new #19
+        + Class [android/os/Handler]
+      [18] dup
+      [19] invokespecial #52
+        + Methodref [android/os/Handler.<init> ()V]
+      [22] putfield #34
+        + Fieldref [com/example/LED/DeviceScanActivity.d Landroid/os/Handler;]
+      [25] aload_0 v0
+      [26] invokevirtual #61
+        + Methodref [com/example/LED/DeviceScanActivity.getPackageManager ()Landroid/content/pm/PackageManager;]
+      [29] ldc #10
+        + String [android.hardware.bluetooth_le]
+      [31] invokevirtual #51
+        + Methodref [android/content/pm/PackageManager.hasSystemFeature (Ljava/lang/String;)Z]
+      [34] ifne +17 (target=51)
+      [37] aload_0 v0
+      [38] ldc #1
+        + Integer [2130968577]
+      [40] iconst_0
+      [41] invokestatic #55
+        + Methodref [android/widget/Toast.makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
+      [44] invokevirtual #56
+        + Methodref [android/widget/Toast.show ()V]
+      [47] aload_0 v0
+      [48] invokevirtual #58
+        + Methodref [com/example/LED/DeviceScanActivity.finish ()V]
+      [51] aload_0 v0
+      [52] ldc #11
+        + String [bluetooth]
+      [54] invokevirtual #62
+        + Methodref [com/example/LED/DeviceScanActivity.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+      [57] checkcast #16
+        + Class [android/bluetooth/BluetoothManager]
+      [60] astore_2 v2
+      [61] aload_0 v0
+      [62] aload_2 v2
+      [63] invokevirtual #47
+        + Methodref [android/bluetooth/BluetoothManager.getAdapter ()Landroid/bluetooth/BluetoothAdapter;]
+      [66] putfield #32
+        + Fieldref [com/example/LED/DeviceScanActivity.b Landroid/bluetooth/BluetoothAdapter;]
+      [69] aload_0 v0
+      [70] getfield #32
+        + Fieldref [com/example/LED/DeviceScanActivity.b Landroid/bluetooth/BluetoothAdapter;]
+      [73] ifnonnull +18 (target=91)
+      [76] aload_0 v0
+      [77] ldc #2
+        + Integer [2130968585]
+      [79] iconst_0
+      [80] invokestatic #55
+        + Methodref [android/widget/Toast.makeText (Landroid/content/Context;II)Landroid/widget/Toast;]
+      [83] invokevirtual #56
+        + Methodref [android/widget/Toast.show ()V]
+      [86] aload_0 v0
+      [87] invokevirtual #58
+        + Methodref [com/example/LED/DeviceScanActivity.finish ()V]
+      [90] return
+      [91] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [51] Var: ..., Stack: (empty)
+        - [91] Var: ...[a:android/bluetooth/BluetoothManager], Stack: (empty)
+  + Method:       onCreateOptionsMenu(Landroid/view/Menu;)Z
+    Access flags: 0x1
+      = public boolean onCreateOptionsMenu(android.view.Menu)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 82, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] invokevirtual #60
+        + Methodref [com/example/LED/DeviceScanActivity.getMenuInflater ()Landroid/view/MenuInflater;]
+      [4] ldc #3
+        + Integer [2131034113]
+      [6] aload_1 v1
+      [7] invokevirtual #54
+        + Methodref [android/view/MenuInflater.inflate (ILandroid/view/Menu;)V]
+      [10] aload_0 v0
+      [11] getfield #33
+        + Fieldref [com/example/LED/DeviceScanActivity.c Z]
+      [14] ifne +36 (target=50)
+      [17] aload_1 v1
+      [18] ldc #5
+        + Integer [2131099656]
+      [20] invokeinterface #72
+        + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+      [25] iconst_0
+      [26] invokeinterface #74
+        + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+      [31] pop
+      [32] aload_1 v1
+      [33] ldc #4
+        + Integer [2131099655]
+      [35] invokeinterface #72
+        + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+      [40] iconst_1
+      [41] invokeinterface #74
+        + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+      [46] pop
+      [47] goto +33 (target=80)
+      [50] aload_1 v1
+      [51] ldc #5
+        + Integer [2131099656]
+      [53] invokeinterface #72
+        + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+      [58] iconst_1
+      [59] invokeinterface #74
+        + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+      [64] pop
+      [65] aload_1 v1
+      [66] ldc #4
+        + Integer [2131099655]
+      [68] invokeinterface #72
+        + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+      [73] iconst_0
+      [74] invokeinterface #74
+        + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+      [79] pop
+      [80] iconst_1
+      [81] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [50] Var: ..., Stack: (empty)
+        - [80] Var: ..., Stack: (empty)
+  + Method:       onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    Access flags: 0x1
+      = public boolean onOptionsItemSelected(android.view.MenuItem)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 54, locals = 2, stack = 2):
+      [0] aload_1 v1
+      [1] invokeinterface #73
+        + InterfaceMethodref [android/view/MenuItem.getItemId ()I]
+      [6] lookupswitch (2 offsets, default=46) (target=52)
+        2131099655: offset = 26, target = 32
+        2131099656: offset = 41, target = 47
+        default: offset = 46, target = 52
+      [32] aload_0 v0
+      [33] getfield #31
+        + Fieldref [com/example/LED/DeviceScanActivity.a Lcom/example/LED/f;]
+      [36] invokevirtual #70
+        + Methodref [com/example/LED/f.a ()V]
+      [39] aload_0 v0
+      [40] iconst_1
+      [41] invokespecial #57
+        + Methodref [com/example/LED/DeviceScanActivity.a (Z)V]
+      [44] goto +8 (target=52)
+      [47] aload_0 v0
+      [48] iconst_0
+      [49] invokespecial #57
+        + Methodref [com/example/LED/DeviceScanActivity.a (Z)V]
+      [52] iconst_1
+      [53] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 3):
+        - [32] Var: ..., Stack: (empty)
+        - [47] Var: ..., Stack: (empty)
+        - [52] Var: ..., Stack: (empty)
+  + Method:       onResume()V
+    Access flags: 0x4
+      = protected void onResume()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 66, locals = 2, stack = 4):
+      [0] aload_0 v0
+      [1] invokespecial #41
+        + Methodref [android/app/ListActivity.onResume ()V]
+      [4] aload_0 v0
+      [5] getfield #32
+        + Fieldref [com/example/LED/DeviceScanActivity.b Landroid/bluetooth/BluetoothAdapter;]
+      [8] invokevirtual #42
+        + Methodref [android/bluetooth/BluetoothAdapter.isEnabled ()Z]
+      [11] ifne +29 (target=40)
+      [14] aload_0 v0
+      [15] getfield #32
+        + Fieldref [com/example/LED/DeviceScanActivity.b Landroid/bluetooth/BluetoothAdapter;]
+      [18] invokevirtual #42
+        + Methodref [android/bluetooth/BluetoothAdapter.isEnabled ()Z]
+      [21] ifne +19 (target=40)
+      [24] new #17
+        + Class [android/content/Intent]
+      [27] dup
+      [28] ldc #9
+        + String [android.bluetooth.adapter.action.REQUEST_ENABLE]
+      [30] invokespecial #49
+        + Methodref [android/content/Intent.<init> (Ljava/lang/String;)V]
+      [33] astore_1 v1
+      [34] aload_0 v0
+      [35] aload_1 v1
+      [36] iconst_1
+      [37] invokevirtual #66
+        + Methodref [com/example/LED/DeviceScanActivity.startActivityForResult (Landroid/content/Intent;I)V]
+      [40] aload_0 v0
+      [41] new #27
+        + Class [com/example/LED/f]
+      [44] dup
+      [45] aload_0 v0
+      [46] invokespecial #69
+        + Methodref [com/example/LED/f.<init> (Lcom/example/LED/DeviceScanActivity;)V]
+      [49] putfield #31
+        + Fieldref [com/example/LED/DeviceScanActivity.a Lcom/example/LED/f;]
+      [52] aload_0 v0
+      [53] aload_0 v0
+      [54] getfield #31
+        + Fieldref [com/example/LED/DeviceScanActivity.a Lcom/example/LED/f;]
+      [57] invokevirtual #64
+        + Methodref [com/example/LED/DeviceScanActivity.setListAdapter (Landroid/widget/ListAdapter;)V]
+      [60] aload_0 v0
+      [61] iconst_1
+      [62] invokespecial #57
+        + Methodref [com/example/LED/DeviceScanActivity.a (Z)V]
+      [65] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 1):
+        - [40] Var: ..., Stack: (empty)
+  + Method:       onActivityResult(IILandroid/content/Intent;)V
+    Access flags: 0x4
+      = protected void onActivityResult(int,int,android.content.Intent)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 22, locals = 4, stack = 4):
+      [0] iload_1 v1
+      [1] iconst_1
+      [2] ificmpne +12 (target=14)
+      [5] iload_2 v2
+      [6] ifne +8 (target=14)
+      [9] aload_0 v0
+      [10] invokevirtual #58
+        + Methodref [com/example/LED/DeviceScanActivity.finish ()V]
+      [13] return
+      [14] aload_0 v0
+      [15] iload_1 v1
+      [16] iload_2 v2
+      [17] aload_3 v3
+      [18] invokespecial #38
+        + Methodref [android/app/ListActivity.onActivityResult (IILandroid/content/Intent;)V]
+      [21] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 1):
+        - [14] Var: ..., Stack: (empty)
+  + Method:       onPause()V
+    Access flags: 0x4
+      = protected void onPause()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 17, locals = 1, stack = 2):
+      [0] aload_0 v0
+      [1] invokespecial #40
+        + Methodref [android/app/ListActivity.onPause ()V]
+      [4] aload_0 v0
+      [5] iconst_0
+      [6] invokespecial #57
+        + Methodref [com/example/LED/DeviceScanActivity.a (Z)V]
+      [9] aload_0 v0
+      [10] getfield #31
+        + Fieldref [com/example/LED/DeviceScanActivity.a Lcom/example/LED/f;]
+      [13] invokevirtual #70
+        + Methodref [com/example/LED/f.a ()V]
+      [16] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
+    Access flags: 0x4
+      = protected void onListItemClick(android.widget.ListView,android.view.View,int,long)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 84, locals = 8, stack = 4):
+      [0] aload_0 v0
+      [1] getfield #31
+        + Fieldref [com/example/LED/DeviceScanActivity.a Lcom/example/LED/f;]
+      [4] iload_3 v3
+      [5] invokevirtual #71
+        + Methodref [com/example/LED/f.a (I)Landroid/bluetooth/BluetoothDevice;]
+      [8] astore v6
+      [10] aload v6
+      [12] ifnonnull +4 (target=16)
+      [15] return
+      [16] new #17
+        + Class [android/content/Intent]
+      [19] dup
+      [20] aload_0 v0
+      [21] ldc #28
+        + Class [com/example/LED/write]
+      [23] invokespecial #48
+        + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
+      [26] astore v7
+      [28] aload v7
+      [30] ldc #8
+        + String [DEVICE_NAME]
+      [32] aload v6
+      [34] invokevirtual #46
+        + Methodref [android/bluetooth/BluetoothDevice.getName ()Ljava/lang/String;]
+      [37] invokevirtual #50
+        + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+      [40] pop
+      [41] aload v7
+      [43] ldc #7
+        + String [DEVICE_ADDRESS]
+      [45] aload v6
+      [47] invokevirtual #45
+        + Methodref [android/bluetooth/BluetoothDevice.getAddress ()Ljava/lang/String;]
+      [50] invokevirtual #50
+        + Methodref [android/content/Intent.putExtra (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;]
+      [53] pop
+      [54] aload_0 v0
+      [55] getfield #33
+        + Fieldref [com/example/LED/DeviceScanActivity.c Z]
+      [58] ifeq +19 (target=77)
+      [61] aload_0 v0
+      [62] getfield #32
+        + Fieldref [com/example/LED/DeviceScanActivity.b Landroid/bluetooth/BluetoothAdapter;]
+      [65] aload_0 v0
+      [66] getfield #35
+        + Fieldref [com/example/LED/DeviceScanActivity.e Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+      [69] invokevirtual #44
+        + Methodref [android/bluetooth/BluetoothAdapter.stopLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)V]
+      [72] aload_0 v0
+      [73] iconst_0
+      [74] putfield #33
+        + Fieldref [com/example/LED/DeviceScanActivity.c Z]
+      [77] aload_0 v0
+      [78] aload v7
+      [80] invokevirtual #65
+        + Methodref [com/example/LED/DeviceScanActivity.startActivity (Landroid/content/Intent;)V]
+      [83] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [16] Var: ...[a:android/bluetooth/BluetoothDevice], Stack: (empty)
+        - [77] Var: ...[a:android/content/Intent], Stack: (empty)
+  + Method:       a(Z)V
+    Access flags: 0x2
+      = private void a(boolean)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 64, locals = 2, stack = 4):
+      [0] iload_1 v1
+      [1] ifeq +42 (target=43)
+      [4] aload_0 v0
+      [5] getfield #34
+        + Fieldref [com/example/LED/DeviceScanActivity.d Landroid/os/Handler;]
+      [8] new #25
+        + Class [com/example/LED/c]
+      [11] dup
+      [12] aload_0 v0
+      [13] invokespecial #67
+        + Methodref [com/example/LED/c.<init> (Lcom/example/LED/DeviceScanActivity;)V]
+      [16] ldc2_w #29
+        + Long [10000]
+      [19] invokevirtual #53
+        + Methodref [android/os/Handler.postDelayed (Ljava/lang/Runnable;J)Z]
+      [22] pop
+      [23] aload_0 v0
+      [24] iconst_1
+      [25] putfield #33
+        + Fieldref [com/example/LED/DeviceScanActivity.c Z]
+      [28] aload_0 v0
+      [29] getfield #32
+        + Fieldref [com/example/LED/DeviceScanActivity.b Landroid/bluetooth/BluetoothAdapter;]
+      [32] aload_0 v0
+      [33] getfield #35
+        + Fieldref [com/example/LED/DeviceScanActivity.e Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+      [36] invokevirtual #43
+        + Methodref [android/bluetooth/BluetoothAdapter.startLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)Z]
+      [39] pop
+      [40] goto +19 (target=59)
+      [43] aload_0 v0
+      [44] iconst_0
+      [45] putfield #33
+        + Fieldref [com/example/LED/DeviceScanActivity.c Z]
+      [48] aload_0 v0
+      [49] getfield #32
+        + Fieldref [com/example/LED/DeviceScanActivity.b Landroid/bluetooth/BluetoothAdapter;]
+      [52] aload_0 v0
+      [53] getfield #35
+        + Fieldref [com/example/LED/DeviceScanActivity.e Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+      [56] invokevirtual #44
+        + Methodref [android/bluetooth/BluetoothAdapter.stopLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)V]
+      [59] aload_0 v0
+      [60] invokevirtual #63
+        + Methodref [com/example/LED/DeviceScanActivity.invalidateOptionsMenu ()V]
+      [63] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [43] Var: ..., Stack: (empty)
+        - [59] Var: ..., Stack: (empty)
+  + Method:       a(Lcom/example/LED/DeviceScanActivity;Z)Z
+    Access flags: 0x1008
+      = static synthetic boolean a(com.example.LED.DeviceScanActivity,boolean)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 7, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] iload_1 v1
+      [2] dup_x1
+      [3] putfield #33
+        + Fieldref [com/example/LED/DeviceScanActivity.c Z]
+      [6] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter$LeScanCallback;
+    Access flags: 0x1008
+      = static synthetic android.bluetooth.BluetoothAdapter$LeScanCallback a(com.example.LED.DeviceScanActivity)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #35
+        + Fieldref [com/example/LED/DeviceScanActivity.e Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       b(Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter;
+    Access flags: 0x1008
+      = static synthetic android.bluetooth.BluetoothAdapter b(com.example.LED.DeviceScanActivity)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #32
+        + Fieldref [com/example/LED/DeviceScanActivity.b Landroid/bluetooth/BluetoothAdapter;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       c(Lcom/example/LED/DeviceScanActivity;)Lcom/example/LED/f;
+    Access flags: 0x1008
+      = static synthetic com.example.LED.f c(com.example.LED.DeviceScanActivity)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #31
+        + Fieldref [com/example/LED/DeviceScanActivity.a Lcom/example/LED/f;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/c
+  Superclass:    java/lang/Object
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.c extends java.lang.Object
+
+Interfaces (count = 1):
+  + Class [java/lang/Runnable]
+
+Constant Pool (count = 39):
+  + Class [android/bluetooth/BluetoothAdapter]
+  + Class [com/example/LED/DeviceScanActivity]
+  + Class [com/example/LED/c]
+  + Class [java/lang/Object]
+  + Class [java/lang/Runnable]
+  + Fieldref [com/example/LED/c.a Lcom/example/LED/DeviceScanActivity;]
+  + Methodref [android/bluetooth/BluetoothAdapter.stopLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)V]
+  + Methodref [com/example/LED/DeviceScanActivity.a (Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+  + Methodref [com/example/LED/DeviceScanActivity.a (Lcom/example/LED/DeviceScanActivity;Z)Z]
+  + Methodref [com/example/LED/DeviceScanActivity.b (Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter;]
+  + Methodref [com/example/LED/DeviceScanActivity.invalidateOptionsMenu ()V]
+  + Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a (Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+  + NameAndType [a (Lcom/example/LED/DeviceScanActivity;Z)Z]
+  + NameAndType [a Lcom/example/LED/DeviceScanActivity;]
+  + NameAndType [b (Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter;]
+  + NameAndType [invalidateOptionsMenu ()V]
+  + NameAndType [stopLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)V]
+  + Utf8 [()V]
+  + Utf8 [(Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)V]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter;]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)V]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;Z)Z]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Lcom/example/LED/DeviceScanActivity;]
+  + Utf8 [a]
+  + Utf8 [android/bluetooth/BluetoothAdapter]
+  + Utf8 [b]
+  + Utf8 [com/example/LED/DeviceScanActivity]
+  + Utf8 [com/example/LED/c]
+  + Utf8 [invalidateOptionsMenu]
+  + Utf8 [java/lang/Object]
+  + Utf8 [java/lang/Runnable]
+  + Utf8 [run]
+  + Utf8 [stopLeScan]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/DeviceScanActivity;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.DeviceScanActivity a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/DeviceScanActivity;)V
+    Access flags: 0x0
+      = c(com.example.LED.DeviceScanActivity)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #6
+        + Fieldref [com/example/LED/c.a Lcom/example/LED/DeviceScanActivity;]
+      [5] aload_0 v0
+      [6] invokespecial #12
+        + Methodref [java/lang/Object.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       run()V
+    Access flags: 0x1
+      = public void run()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 34, locals = 1, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #6
+        + Fieldref [com/example/LED/c.a Lcom/example/LED/DeviceScanActivity;]
+      [4] iconst_0
+      [5] invokestatic #9
+        + Methodref [com/example/LED/DeviceScanActivity.a (Lcom/example/LED/DeviceScanActivity;Z)Z]
+      [8] pop
+      [9] aload_0 v0
+      [10] getfield #6
+        + Fieldref [com/example/LED/c.a Lcom/example/LED/DeviceScanActivity;]
+      [13] invokestatic #10
+        + Methodref [com/example/LED/DeviceScanActivity.b (Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter;]
+      [16] aload_0 v0
+      [17] getfield #6
+        + Fieldref [com/example/LED/c.a Lcom/example/LED/DeviceScanActivity;]
+      [20] invokestatic #8
+        + Methodref [com/example/LED/DeviceScanActivity.a (Lcom/example/LED/DeviceScanActivity;)Landroid/bluetooth/BluetoothAdapter$LeScanCallback;]
+      [23] invokevirtual #7
+        + Methodref [android/bluetooth/BluetoothAdapter.stopLeScan (Landroid/bluetooth/BluetoothAdapter$LeScanCallback;)V]
+      [26] aload_0 v0
+      [27] getfield #6
+        + Fieldref [com/example/LED/c.a Lcom/example/LED/DeviceScanActivity;]
+      [30] invokevirtual #11
+        + Methodref [com/example/LED/DeviceScanActivity.invalidateOptionsMenu ()V]
+      [33] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/d
+  Superclass:    java/lang/Object
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.d extends java.lang.Object
+
+Interfaces (count = 1):
+  + Class [android/bluetooth/BluetoothAdapter$LeScanCallback]
+
+Constant Pool (count = 30):
+  + Class [android/bluetooth/BluetoothAdapter$LeScanCallback]
+  + Class [com/example/LED/DeviceScanActivity]
+  + Class [com/example/LED/d]
+  + Class [com/example/LED/e]
+  + Class [java/lang/Object]
+  + Fieldref [com/example/LED/d.a Lcom/example/LED/DeviceScanActivity;]
+  + Methodref [com/example/LED/DeviceScanActivity.runOnUiThread (Ljava/lang/Runnable;)V]
+  + Methodref [com/example/LED/e.<init> (Lcom/example/LED/d;Landroid/bluetooth/BluetoothDevice;)V]
+  + Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (Lcom/example/LED/d;Landroid/bluetooth/BluetoothDevice;)V]
+  + NameAndType [a Lcom/example/LED/DeviceScanActivity;]
+  + NameAndType [runOnUiThread (Ljava/lang/Runnable;)V]
+  + Utf8 [()V]
+  + Utf8 [(Landroid/bluetooth/BluetoothDevice;I[B)V]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)V]
+  + Utf8 [(Lcom/example/LED/d;Landroid/bluetooth/BluetoothDevice;)V]
+  + Utf8 [(Ljava/lang/Runnable;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Lcom/example/LED/DeviceScanActivity;]
+  + Utf8 [a]
+  + Utf8 [android/bluetooth/BluetoothAdapter$LeScanCallback]
+  + Utf8 [com/example/LED/DeviceScanActivity]
+  + Utf8 [com/example/LED/d]
+  + Utf8 [com/example/LED/e]
+  + Utf8 [java/lang/Object]
+  + Utf8 [onLeScan]
+  + Utf8 [runOnUiThread]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/DeviceScanActivity;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.DeviceScanActivity a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/DeviceScanActivity;)V
+    Access flags: 0x0
+      = d(com.example.LED.DeviceScanActivity)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #6
+        + Fieldref [com/example/LED/d.a Lcom/example/LED/DeviceScanActivity;]
+      [5] aload_0 v0
+      [6] invokespecial #9
+        + Methodref [java/lang/Object.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onLeScan(Landroid/bluetooth/BluetoothDevice;I[B)V
+    Access flags: 0x1
+      = public void onLeScan(android.bluetooth.BluetoothDevice,int,byte[])
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 17, locals = 4, stack = 5):
+      [0] aload_0 v0
+      [1] getfield #6
+        + Fieldref [com/example/LED/d.a Lcom/example/LED/DeviceScanActivity;]
+      [4] new #4
+        + Class [com/example/LED/e]
+      [7] dup
+      [8] aload_0 v0
+      [9] aload_1 v1
+      [10] invokespecial #8
+        + Methodref [com/example/LED/e.<init> (Lcom/example/LED/d;Landroid/bluetooth/BluetoothDevice;)V]
+      [13] invokevirtual #7
+        + Methodref [com/example/LED/DeviceScanActivity.runOnUiThread (Ljava/lang/Runnable;)V]
+      [16] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/e
+  Superclass:    java/lang/Object
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.e extends java.lang.Object
+
+Interfaces (count = 1):
+  + Class [java/lang/Runnable]
+
+Constant Pool (count = 41):
+  + Class [com/example/LED/DeviceScanActivity]
+  + Class [com/example/LED/d]
+  + Class [com/example/LED/e]
+  + Class [com/example/LED/f]
+  + Class [java/lang/Object]
+  + Class [java/lang/Runnable]
+  + Fieldref [com/example/LED/d.a Lcom/example/LED/DeviceScanActivity;]
+  + Fieldref [com/example/LED/e.a Landroid/bluetooth/BluetoothDevice;]
+  + Fieldref [com/example/LED/e.b Lcom/example/LED/d;]
+  + Methodref [com/example/LED/DeviceScanActivity.c (Lcom/example/LED/DeviceScanActivity;)Lcom/example/LED/f;]
+  + Methodref [com/example/LED/f.a (Landroid/bluetooth/BluetoothDevice;)V]
+  + Methodref [com/example/LED/f.notifyDataSetChanged ()V]
+  + Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a (Landroid/bluetooth/BluetoothDevice;)V]
+  + NameAndType [a Landroid/bluetooth/BluetoothDevice;]
+  + NameAndType [a Lcom/example/LED/DeviceScanActivity;]
+  + NameAndType [b Lcom/example/LED/d;]
+  + NameAndType [c (Lcom/example/LED/DeviceScanActivity;)Lcom/example/LED/f;]
+  + NameAndType [notifyDataSetChanged ()V]
+  + Utf8 [()V]
+  + Utf8 [(Landroid/bluetooth/BluetoothDevice;)V]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)Lcom/example/LED/f;]
+  + Utf8 [(Lcom/example/LED/d;Landroid/bluetooth/BluetoothDevice;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/bluetooth/BluetoothDevice;]
+  + Utf8 [Lcom/example/LED/DeviceScanActivity;]
+  + Utf8 [Lcom/example/LED/d;]
+  + Utf8 [a]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [com/example/LED/DeviceScanActivity]
+  + Utf8 [com/example/LED/d]
+  + Utf8 [com/example/LED/e]
+  + Utf8 [com/example/LED/f]
+  + Utf8 [java/lang/Object]
+  + Utf8 [java/lang/Runnable]
+  + Utf8 [notifyDataSetChanged]
+  + Utf8 [run]
+
+Fields (count = 2):
+  + Field:        a Landroid/bluetooth/BluetoothDevice;
+    Access flags: 0x1010
+      = final synthetic android.bluetooth.BluetoothDevice a
+  + Field:        b Lcom/example/LED/d;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.d b
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/d;Landroid/bluetooth/BluetoothDevice;)V
+    Access flags: 0x0
+      = e(com.example.LED.d,android.bluetooth.BluetoothDevice)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 15, locals = 3, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #9
+        + Fieldref [com/example/LED/e.b Lcom/example/LED/d;]
+      [5] aload_0 v0
+      [6] aload_2 v2
+      [7] putfield #8
+        + Fieldref [com/example/LED/e.a Landroid/bluetooth/BluetoothDevice;]
+      [10] aload_0 v0
+      [11] invokespecial #13
+        + Methodref [java/lang/Object.<init> ()V]
+      [14] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       run()V
+    Access flags: 0x1
+      = public void run()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 31, locals = 1, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #9
+        + Fieldref [com/example/LED/e.b Lcom/example/LED/d;]
+      [4] getfield #7
+        + Fieldref [com/example/LED/d.a Lcom/example/LED/DeviceScanActivity;]
+      [7] invokestatic #10
+        + Methodref [com/example/LED/DeviceScanActivity.c (Lcom/example/LED/DeviceScanActivity;)Lcom/example/LED/f;]
+      [10] aload_0 v0
+      [11] getfield #8
+        + Fieldref [com/example/LED/e.a Landroid/bluetooth/BluetoothDevice;]
+      [14] invokevirtual #11
+        + Methodref [com/example/LED/f.a (Landroid/bluetooth/BluetoothDevice;)V]
+      [17] aload_0 v0
+      [18] getfield #9
+        + Fieldref [com/example/LED/e.b Lcom/example/LED/d;]
+      [21] getfield #7
+        + Fieldref [com/example/LED/d.a Lcom/example/LED/DeviceScanActivity;]
+      [24] invokestatic #10
+        + Methodref [com/example/LED/DeviceScanActivity.c (Lcom/example/LED/DeviceScanActivity;)Lcom/example/LED/f;]
+      [27] invokevirtual #12
+        + Methodref [com/example/LED/f.notifyDataSetChanged ()V]
+      [30] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/f
+  Superclass:    android/widget/BaseAdapter
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.f extends android.widget.BaseAdapter
+
+Interfaces (count = 0):
+
+Constant Pool (count = 107):
+  + Integer [2130903040]
+  + Integer [2131099648]
+  + Integer [2131099649]
+  + String [01111481张杨华-蓝牙LED灯]
+  + Class [android/bluetooth/BluetoothDevice]
+  + Class [android/view/LayoutInflater]
+  + Class [android/view/View]
+  + Class [android/widget/BaseAdapter]
+  + Class [android/widget/TextView]
+  + Class [com/example/LED/DeviceScanActivity]
+  + Class [com/example/LED/f]
+  + Class [com/example/LED/g]
+  + Class [java/util/ArrayList]
+  + Fieldref [com/example/LED/f.a Lcom/example/LED/DeviceScanActivity;]
+  + Fieldref [com/example/LED/f.b Ljava/util/ArrayList;]
+  + Fieldref [com/example/LED/f.c Landroid/view/LayoutInflater;]
+  + Fieldref [com/example/LED/g.a Landroid/widget/TextView;]
+  + Fieldref [com/example/LED/g.b Landroid/widget/TextView;]
+  + Methodref [android/bluetooth/BluetoothDevice.getAddress ()Ljava/lang/String;]
+  + Methodref [android/bluetooth/BluetoothDevice.getName ()Ljava/lang/String;]
+  + Methodref [android/view/LayoutInflater.inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+  + Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+  + Methodref [android/view/View.getTag ()Ljava/lang/Object;]
+  + Methodref [android/view/View.setTag (Ljava/lang/Object;)V]
+  + Methodref [android/widget/BaseAdapter.<init> ()V]
+  + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
+  + Methodref [com/example/LED/DeviceScanActivity.getLayoutInflater ()Landroid/view/LayoutInflater;]
+  + Methodref [com/example/LED/g.<init> ()V]
+  + Methodref [java/util/ArrayList.<init> ()V]
+  + Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
+  + Methodref [java/util/ArrayList.clear ()V]
+  + Methodref [java/util/ArrayList.contains (Ljava/lang/Object;)Z]
+  + Methodref [java/util/ArrayList.get (I)Ljava/lang/Object;]
+  + Methodref [java/util/ArrayList.size ()I]
+  + NameAndType [<init> ()V]
+  + NameAndType [a Landroid/widget/TextView;]
+  + NameAndType [a Lcom/example/LED/DeviceScanActivity;]
+  + NameAndType [add (Ljava/lang/Object;)Z]
+  + NameAndType [b Landroid/widget/TextView;]
+  + NameAndType [b Ljava/util/ArrayList;]
+  + NameAndType [c Landroid/view/LayoutInflater;]
+  + NameAndType [clear ()V]
+  + NameAndType [contains (Ljava/lang/Object;)Z]
+  + NameAndType [findViewById (I)Landroid/view/View;]
+  + NameAndType [get (I)Ljava/lang/Object;]
+  + NameAndType [getAddress ()Ljava/lang/String;]
+  + NameAndType [getLayoutInflater ()Landroid/view/LayoutInflater;]
+  + NameAndType [getName ()Ljava/lang/String;]
+  + NameAndType [getTag ()Ljava/lang/Object;]
+  + NameAndType [inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+  + NameAndType [setTag (Ljava/lang/Object;)V]
+  + NameAndType [setText (Ljava/lang/CharSequence;)V]
+  + NameAndType [size ()I]
+  + Utf8 [()I]
+  + Utf8 [()Landroid/view/LayoutInflater;]
+  + Utf8 [()Ljava/lang/Object;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [(I)J]
+  + Utf8 [(I)Landroid/bluetooth/BluetoothDevice;]
+  + Utf8 [(I)Landroid/view/View;]
+  + Utf8 [(I)Ljava/lang/Object;]
+  + Utf8 [(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;]
+  + Utf8 [(ILandroid/view/ViewGroup;)Landroid/view/View;]
+  + Utf8 [(Landroid/bluetooth/BluetoothDevice;)V]
+  + Utf8 [(Lcom/example/LED/DeviceScanActivity;)V]
+  + Utf8 [(Ljava/lang/CharSequence;)V]
+  + Utf8 [(Ljava/lang/Object;)V]
+  + Utf8 [(Ljava/lang/Object;)Z]
+  + Utf8 [01111481张杨华-蓝牙LED灯]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/view/LayoutInflater;]
+  + Utf8 [Landroid/widget/TextView;]
+  + Utf8 [Lcom/example/LED/DeviceScanActivity;]
+  + Utf8 [Ljava/util/ArrayList;]
+  + Utf8 [StackMapTable]
+  + Utf8 [a]
+  + Utf8 [add]
+  + Utf8 [android/bluetooth/BluetoothDevice]
+  + Utf8 [android/view/LayoutInflater]
+  + Utf8 [android/view/View]
+  + Utf8 [android/widget/BaseAdapter]
+  + Utf8 [android/widget/TextView]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [clear]
+  + Utf8 [com/example/LED/DeviceScanActivity]
+  + Utf8 [com/example/LED/f]
+  + Utf8 [com/example/LED/g]
+  + Utf8 [contains]
+  + Utf8 [findViewById]
+  + Utf8 [get]
+  + Utf8 [getAddress]
+  + Utf8 [getCount]
+  + Utf8 [getItem]
+  + Utf8 [getItemId]
+  + Utf8 [getLayoutInflater]
+  + Utf8 [getName]
+  + Utf8 [getTag]
+  + Utf8 [getView]
+  + Utf8 [inflate]
+  + Utf8 [java/util/ArrayList]
+  + Utf8 [setTag]
+  + Utf8 [setText]
+  + Utf8 [size]
+
+Fields (count = 3):
+  + Field:        b Ljava/util/ArrayList;
+    Access flags: 0x2
+      = private java.util.ArrayList b
+  + Field:        c Landroid/view/LayoutInflater;
+    Access flags: 0x2
+      = private android.view.LayoutInflater c
+  + Field:        a Lcom/example/LED/DeviceScanActivity;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.DeviceScanActivity a
+
+Methods (count = 8):
+  - Method:       <init>(Lcom/example/LED/DeviceScanActivity;)V
+    Access flags: 0x1
+      = public f(com.example.LED.DeviceScanActivity)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 29, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #14
+        + Fieldref [com/example/LED/f.a Lcom/example/LED/DeviceScanActivity;]
+      [5] aload_0 v0
+      [6] invokespecial #25
+        + Methodref [android/widget/BaseAdapter.<init> ()V]
+      [9] aload_0 v0
+      [10] new #13
+        + Class [java/util/ArrayList]
+      [13] dup
+      [14] invokespecial #29
+        + Methodref [java/util/ArrayList.<init> ()V]
+      [17] putfield #15
+        + Fieldref [com/example/LED/f.b Ljava/util/ArrayList;]
+      [20] aload_0 v0
+      [21] aload_1 v1
+      [22] invokevirtual #27
+        + Methodref [com/example/LED/DeviceScanActivity.getLayoutInflater ()Landroid/view/LayoutInflater;]
+      [25] putfield #16
+        + Fieldref [com/example/LED/f.c Landroid/view/LayoutInflater;]
+      [28] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Landroid/bluetooth/BluetoothDevice;)V
+    Access flags: 0x1
+      = public void a(android.bluetooth.BluetoothDevice)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 21, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #15
+        + Fieldref [com/example/LED/f.b Ljava/util/ArrayList;]
+      [4] aload_1 v1
+      [5] invokevirtual #32
+        + Methodref [java/util/ArrayList.contains (Ljava/lang/Object;)Z]
+      [8] ifne +12 (target=20)
+      [11] aload_0 v0
+      [12] getfield #15
+        + Fieldref [com/example/LED/f.b Ljava/util/ArrayList;]
+      [15] aload_1 v1
+      [16] invokevirtual #30
+        + Methodref [java/util/ArrayList.add (Ljava/lang/Object;)Z]
+      [19] pop
+      [20] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 1):
+        - [20] Var: ..., Stack: (empty)
+  + Method:       a(I)Landroid/bluetooth/BluetoothDevice;
+    Access flags: 0x1
+      = public android.bluetooth.BluetoothDevice a(int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 12, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #15
+        + Fieldref [com/example/LED/f.b Ljava/util/ArrayList;]
+      [4] iload_1 v1
+      [5] invokevirtual #33
+        + Methodref [java/util/ArrayList.get (I)Ljava/lang/Object;]
+      [8] checkcast #5
+        + Class [android/bluetooth/BluetoothDevice]
+      [11] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()V
+    Access flags: 0x1
+      = public void a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 8, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #15
+        + Fieldref [com/example/LED/f.b Ljava/util/ArrayList;]
+      [4] invokevirtual #31
+        + Methodref [java/util/ArrayList.clear ()V]
+      [7] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       getCount()I
+    Access flags: 0x1
+      = public int getCount()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 8, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #15
+        + Fieldref [com/example/LED/f.b Ljava/util/ArrayList;]
+      [4] invokevirtual #34
+        + Methodref [java/util/ArrayList.size ()I]
+      [7] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       getItem(I)Ljava/lang/Object;
+    Access flags: 0x1
+      = public java.lang.Object getItem(int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 9, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #15
+        + Fieldref [com/example/LED/f.b Ljava/util/ArrayList;]
+      [4] iload_1 v1
+      [5] invokevirtual #33
+        + Methodref [java/util/ArrayList.get (I)Ljava/lang/Object;]
+      [8] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       getItemId(I)J
+    Access flags: 0x1
+      = public long getItemId(int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 3, locals = 2, stack = 2):
+      [0] iload_1 v1
+      [1] i2l
+      [2] lreturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    Access flags: 0x1
+      = public android.view.View getView(int,android.view.View,android.view.ViewGroup)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 115, locals = 7, stack = 3):
+      [0] aload_2 v2
+      [1] ifnonnull +60 (target=61)
+      [4] aload_0 v0
+      [5] getfield #16
+        + Fieldref [com/example/LED/f.c Landroid/view/LayoutInflater;]
+      [8] ldc #1
+        + Integer [2130903040]
+      [10] aconst_null
+      [11] invokevirtual #21
+        + Methodref [android/view/LayoutInflater.inflate (ILandroid/view/ViewGroup;)Landroid/view/View;]
+      [14] astore_2 v2
+      [15] new #12
+        + Class [com/example/LED/g]
+      [18] dup
+      [19] invokespecial #28
+        + Methodref [com/example/LED/g.<init> ()V]
+      [22] astore v4
+      [24] aload v4
+      [26] aload_2 v2
+      [27] ldc #3
+        + Integer [2131099649]
+      [29] invokevirtual #22
+        + Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+      [32] checkcast #9
+        + Class [android/widget/TextView]
+      [35] putfield #18
+        + Fieldref [com/example/LED/g.b Landroid/widget/TextView;]
+      [38] aload v4
+      [40] aload_2 v2
+      [41] ldc #2
+        + Integer [2131099648]
+      [43] invokevirtual #22
+        + Methodref [android/view/View.findViewById (I)Landroid/view/View;]
+      [46] checkcast #9
+        + Class [android/widget/TextView]
+      [49] putfield #17
+        + Fieldref [com/example/LED/g.a Landroid/widget/TextView;]
+      [52] aload_2 v2
+      [53] aload v4
+      [55] invokevirtual #24
+        + Methodref [android/view/View.setTag (Ljava/lang/Object;)V]
+      [58] goto +12 (target=70)
+      [61] aload_2 v2
+      [62] invokevirtual #23
+        + Methodref [android/view/View.getTag ()Ljava/lang/Object;]
+      [65] checkcast #12
+        + Class [com/example/LED/g]
+      [68] astore v4
+      [70] aload_0 v0
+      [71] getfield #15
+        + Fieldref [com/example/LED/f.b Ljava/util/ArrayList;]
+      [74] iload_1 v1
+      [75] invokevirtual #33
+        + Methodref [java/util/ArrayList.get (I)Ljava/lang/Object;]
+      [78] checkcast #5
+        + Class [android/bluetooth/BluetoothDevice]
+      [81] astore v5
+      [83] aload v5
+      [85] invokevirtual #20
+        + Methodref [android/bluetooth/BluetoothDevice.getName ()Ljava/lang/String;]
+      [88] astore v6
+      [90] aload v4
+      [92] getfield #17
+        + Fieldref [com/example/LED/g.a Landroid/widget/TextView;]
+      [95] ldc #4
+        + String [01111481张杨华-蓝牙LED灯]
+      [97] invokevirtual #26
+        + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
+      [100] aload v4
+      [102] getfield #18
+        + Fieldref [com/example/LED/g.b Landroid/widget/TextView;]
+      [105] aload v5
+      [107] invokevirtual #19
+        + Methodref [android/bluetooth/BluetoothDevice.getAddress ()Ljava/lang/String;]
+      [110] invokevirtual #26
+        + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
+      [113] aload_2 v2
+      [114] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [61] Var: ..., Stack: (empty)
+        - [70] Var: ...[a:com/example/LED/g], Stack: (empty)
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/g
+  Superclass:    java/lang/Object
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.g extends java.lang.Object
+
+Interfaces (count = 0):
+
+Constant Pool (count = 13):
+  + Class [com/example/LED/g]
+  + Class [java/lang/Object]
+  + Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + Utf8 [()V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Landroid/widget/TextView;]
+  + Utf8 [a]
+  + Utf8 [b]
+  + Utf8 [com/example/LED/g]
+  + Utf8 [java/lang/Object]
+
+Fields (count = 2):
+  + Field:        a Landroid/widget/TextView;
+    Access flags: 0x0
+      = android.widget.TextView a
+  + Field:        b Landroid/widget/TextView;
+    Access flags: 0x0
+      = android.widget.TextView b
+
+Methods (count = 1):
+  - Method:       <init>()V
+    Access flags: 0x0
+      = g()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] invokespecial #3
+        + Methodref [java/lang/Object.<init> ()V]
+      [4] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/write
+  Superclass:    android/app/Activity
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x21
+    = public class com.example.LED.write extends android.app.Activity
+
+Interfaces (count = 0):
+
+Constant Pool (count = 285):
+  + Integer [2130837505]
+  + Integer [2130903041]
+  + Integer [2131034112]
+  + Integer [2131099650]
+  + Integer [2131099651]
+  + Integer [2131099652]
+  + Integer [2131099653]
+  + Integer [2131099654]
+  + String [0000fff1-0000-1000-8000-00805f9b34fb]
+  + String [DEVICE_ADDRESS]
+  + String [com.example.bluetooth.le.ACTION_DATA_AVAILABLE]
+  + String [com.example.bluetooth.le.ACTION_GATT_CONNECTED]
+  + String [com.example.bluetooth.le.ACTION_GATT_DISCONNECTED]
+  + String [com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED]
+  + String [长度不是偶数]
+  + Class [[B]
+  + Class [android/app/Activity]
+  + Class [android/content/Intent]
+  + Class [android/content/IntentFilter]
+  + Class [android/content/res/Resources]
+  + Class [android/graphics/drawable/BitmapDrawable]
+  + Class [android/view/Menu]
+  + Class [android/view/MenuInflater]
+  + Class [android/view/MenuItem]
+  + Class [android/widget/Button]
+  + Class [android/widget/ImageView]
+  + Class [android/widget/ToggleButton]
+  + Class [com/example/LED/BluetoothLeService]
+  + Class [com/example/LED/h]
+  + Class [com/example/LED/i]
+  + Class [com/example/LED/j]
+  + Class [com/example/LED/l]
+  + Class [com/example/LED/m]
+  + Class [com/example/LED/n]
+  + Class [com/example/LED/o]
+  + Class [com/example/LED/write]
+  + Class [java/lang/Class]
+  + Class [java/lang/IllegalArgumentException]
+  + Class [java/lang/Integer]
+  + Class [java/lang/String]
+  + Class [java/util/Timer]
+  + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+  + Fieldref [com/example/LED/write.b Ljava/lang/String;]
+  + Fieldref [com/example/LED/write.c Ljava/lang/String;]
+  + Fieldref [com/example/LED/write.d Z]
+  + Fieldref [com/example/LED/write.e Landroid/widget/ImageView;]
+  + Fieldref [com/example/LED/write.f Landroid/graphics/Bitmap;]
+  + Fieldref [com/example/LED/write.g Z]
+  + Fieldref [com/example/LED/write.h Ljava/util/Timer;]
+  + Fieldref [com/example/LED/write.i [B]
+  + Fieldref [com/example/LED/write.j [B]
+  + Fieldref [com/example/LED/write.k Ljava/lang/String;]
+  + Fieldref [com/example/LED/write.l Landroid/content/ServiceConnection;]
+  + Fieldref [com/example/LED/write.m Landroid/content/BroadcastReceiver;]
+  + Fieldref [com/example/LED/write.n Landroid/os/Handler;]
+  + Methodref [android/app/Activity.<init> ()V]
+  + Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
+  + Methodref [android/app/Activity.onDestroy ()V]
+  + Methodref [android/app/Activity.onOptionsItemSelected (Landroid/view/MenuItem;)Z]
+  + Methodref [android/app/Activity.onPause ()V]
+  + Methodref [android/app/Activity.onResume ()V]
+  + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
+  + Methodref [android/content/Intent.getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
+  + Methodref [android/content/IntentFilter.<init> ()V]
+  + Methodref [android/content/IntentFilter.addAction (Ljava/lang/String;)V]
+  + Methodref [android/content/res/Resources.getDrawable (I)Landroid/graphics/drawable/Drawable;]
+  + Methodref [android/graphics/drawable/BitmapDrawable.getBitmap ()Landroid/graphics/Bitmap;]
+  + Methodref [android/view/MenuInflater.inflate (ILandroid/view/Menu;)V]
+  + Methodref [android/widget/Button.setOnClickListener (Landroid/view/View$OnClickListener;)V]
+  + Methodref [android/widget/ImageView.setOnTouchListener (Landroid/view/View$OnTouchListener;)V]
+  + Methodref [android/widget/ToggleButton.setOnCheckedChangeListener (Landroid/widget/CompoundButton$OnCheckedChangeListener;)V]
+  + Methodref [com/example/LED/BluetoothLeService.a (Ljava/lang/String;)Z]
+  + Methodref [com/example/LED/BluetoothLeService.b ()V]
+  + Methodref [com/example/LED/h.<init> (Lcom/example/LED/write;)V]
+  + Methodref [com/example/LED/i.<init> (Lcom/example/LED/write;)V]
+  + Methodref [com/example/LED/j.<init> (Lcom/example/LED/write;)V]
+  + Methodref [com/example/LED/l.<init> (Lcom/example/LED/write;)V]
+  + Methodref [com/example/LED/m.<init> (Lcom/example/LED/write;)V]
+  + Methodref [com/example/LED/n.<init> (Lcom/example/LED/write;)V]
+  + Methodref [com/example/LED/o.<init> (Lcom/example/LED/write;)V]
+  + Methodref [com/example/LED/write.a (Ljava/util/Date;)V]
+  + Methodref [com/example/LED/write.b ()Landroid/content/IntentFilter;]
+  + Methodref [com/example/LED/write.bindService (Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z]
+  + Methodref [com/example/LED/write.findViewById (I)Landroid/view/View;]
+  + Methodref [com/example/LED/write.getIntent ()Landroid/content/Intent;]
+  + Methodref [com/example/LED/write.getMenuInflater ()Landroid/view/MenuInflater;]
+  + Methodref [com/example/LED/write.getResources ()Landroid/content/res/Resources;]
+  + Methodref [com/example/LED/write.onBackPressed ()V]
+  + Methodref [com/example/LED/write.registerReceiver (Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;]
+  + Methodref [com/example/LED/write.setContentView (I)V]
+  + Methodref [com/example/LED/write.unbindService (Landroid/content/ServiceConnection;)V]
+  + Methodref [com/example/LED/write.unregisterReceiver (Landroid/content/BroadcastReceiver;)V]
+  + Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
+  + Methodref [java/lang/IllegalArgumentException.<init> (Ljava/lang/String;)V]
+  + Methodref [java/lang/Integer.parseInt (Ljava/lang/String;I)I]
+  + Methodref [java/lang/String.<init> ([BII)V]
+  + Methodref [java/util/Timer.schedule (Ljava/util/TimerTask;Ljava/util/Date;)V]
+  + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+  + InterfaceMethodref [android/view/MenuItem.getItemId ()I]
+  + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (Landroid/content/Context;Ljava/lang/Class;)V]
+  + NameAndType [<init> (Lcom/example/LED/write;)V]
+  + NameAndType [<init> (Ljava/lang/String;)V]
+  + NameAndType [<init> ([BII)V]
+  + NameAndType [a (Ljava/lang/String;)Z]
+  + NameAndType [a (Ljava/util/Date;)V]
+  + NameAndType [a Lcom/example/LED/BluetoothLeService;]
+  + NameAndType [addAction (Ljava/lang/String;)V]
+  + NameAndType [b ()Landroid/content/IntentFilter;]
+  + NameAndType [b ()V]
+  + NameAndType [b Ljava/lang/String;]
+  + NameAndType [bindService (Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z]
+  + NameAndType [c Ljava/lang/String;]
+  + NameAndType [d Z]
+  + NameAndType [e Landroid/widget/ImageView;]
+  + NameAndType [f Landroid/graphics/Bitmap;]
+  + NameAndType [findItem (I)Landroid/view/MenuItem;]
+  + NameAndType [findViewById (I)Landroid/view/View;]
+  + NameAndType [g Z]
+  + NameAndType [getBitmap ()Landroid/graphics/Bitmap;]
+  + NameAndType [getDrawable (I)Landroid/graphics/drawable/Drawable;]
+  + NameAndType [getIntent ()Landroid/content/Intent;]
+  + NameAndType [getItemId ()I]
+  + NameAndType [getMenuInflater ()Landroid/view/MenuInflater;]
+  + NameAndType [getResources ()Landroid/content/res/Resources;]
+  + NameAndType [getSimpleName ()Ljava/lang/String;]
+  + NameAndType [getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
+  + NameAndType [h Ljava/util/Timer;]
+  + NameAndType [i [B]
+  + NameAndType [inflate (ILandroid/view/Menu;)V]
+  + NameAndType [j [B]
+  + NameAndType [k Ljava/lang/String;]
+  + NameAndType [l Landroid/content/ServiceConnection;]
+  + NameAndType [m Landroid/content/BroadcastReceiver;]
+  + NameAndType [n Landroid/os/Handler;]
+  + NameAndType [onBackPressed ()V]
+  + NameAndType [onCreate (Landroid/os/Bundle;)V]
+  + NameAndType [onDestroy ()V]
+  + NameAndType [onOptionsItemSelected (Landroid/view/MenuItem;)Z]
+  + NameAndType [onPause ()V]
+  + NameAndType [onResume ()V]
+  + NameAndType [parseInt (Ljava/lang/String;I)I]
+  + NameAndType [registerReceiver (Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;]
+  + NameAndType [schedule (Ljava/util/TimerTask;Ljava/util/Date;)V]
+  + NameAndType [setContentView (I)V]
+  + NameAndType [setOnCheckedChangeListener (Landroid/widget/CompoundButton$OnCheckedChangeListener;)V]
+  + NameAndType [setOnClickListener (Landroid/view/View$OnClickListener;)V]
+  + NameAndType [setOnTouchListener (Landroid/view/View$OnTouchListener;)V]
+  + NameAndType [setVisible (Z)Landroid/view/MenuItem;]
+  + NameAndType [unbindService (Landroid/content/ServiceConnection;)V]
+  + NameAndType [unregisterReceiver (Landroid/content/BroadcastReceiver;)V]
+  + Utf8 [()I]
+  + Utf8 [()Landroid/content/Intent;]
+  + Utf8 [()Landroid/content/IntentFilter;]
+  + Utf8 [()Landroid/content/res/Resources;]
+  + Utf8 [()Landroid/graphics/Bitmap;]
+  + Utf8 [()Landroid/view/MenuInflater;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [(I)Landroid/graphics/drawable/Drawable;]
+  + Utf8 [(I)Landroid/view/MenuItem;]
+  + Utf8 [(I)Landroid/view/View;]
+  + Utf8 [(I)V]
+  + Utf8 [(ILandroid/view/Menu;)V]
+  + Utf8 [(Landroid/content/BroadcastReceiver;)V]
+  + Utf8 [(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;]
+  + Utf8 [(Landroid/content/Context;Ljava/lang/Class;)V]
+  + Utf8 [(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z]
+  + Utf8 [(Landroid/content/ServiceConnection;)V]
+  + Utf8 [(Landroid/os/Bundle;)V]
+  + Utf8 [(Landroid/view/Menu;)Z]
+  + Utf8 [(Landroid/view/MenuItem;)Z]
+  + Utf8 [(Landroid/view/View$OnClickListener;)V]
+  + Utf8 [(Landroid/view/View$OnTouchListener;)V]
+  + Utf8 [(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V]
+  + Utf8 [(Lcom/example/LED/write;)Landroid/graphics/Bitmap;]
+  + Utf8 [(Lcom/example/LED/write;)Landroid/os/Handler;]
+  + Utf8 [(Lcom/example/LED/write;)Ljava/lang/String;]
+  + Utf8 [(Lcom/example/LED/write;)V]
+  + Utf8 [(Lcom/example/LED/write;)Z]
+  + Utf8 [(Lcom/example/LED/write;)[B]
+  + Utf8 [(Lcom/example/LED/write;Ljava/util/Date;)V]
+  + Utf8 [(Lcom/example/LED/write;Ljava/util/Timer;)Ljava/util/Timer;]
+  + Utf8 [(Lcom/example/LED/write;Z)Z]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/String;]
+  + Utf8 [(Ljava/lang/String;)V]
+  + Utf8 [(Ljava/lang/String;)Z]
+  + Utf8 [(Ljava/lang/String;I)I]
+  + Utf8 [(Ljava/util/Date;)V]
+  + Utf8 [(Ljava/util/TimerTask;Ljava/util/Date;)V]
+  + Utf8 [(Z)Landroid/view/MenuItem;]
+  + Utf8 [([B)[B]
+  + Utf8 [([BII)V]
+  + Utf8 [0000fff1-0000-1000-8000-00805f9b34fb]
+  + Utf8 [<clinit>]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [DEVICE_ADDRESS]
+  + Utf8 [Landroid/content/BroadcastReceiver;]
+  + Utf8 [Landroid/content/ServiceConnection;]
+  + Utf8 [Landroid/graphics/Bitmap;]
+  + Utf8 [Landroid/os/Handler;]
+  + Utf8 [Landroid/widget/ImageView;]
+  + Utf8 [Lcom/example/LED/BluetoothLeService;]
+  + Utf8 [Ljava/lang/String;]
+  + Utf8 [Ljava/util/Timer;]
+  + Utf8 [StackMapTable]
+  + Utf8 [Z]
+  + Utf8 [[B]
+  + Utf8 [a]
+  + Utf8 [addAction]
+  + Utf8 [android/app/Activity]
+  + Utf8 [android/content/Intent]
+  + Utf8 [android/content/IntentFilter]
+  + Utf8 [android/content/res/Resources]
+  + Utf8 [android/graphics/drawable/BitmapDrawable]
+  + Utf8 [android/view/Menu]
+  + Utf8 [android/view/MenuInflater]
+  + Utf8 [android/view/MenuItem]
+  + Utf8 [android/widget/Button]
+  + Utf8 [android/widget/ImageView]
+  + Utf8 [android/widget/ToggleButton]
+  + Utf8 [b]
+  + Utf8 [bindService]
+  + Utf8 [c]
+  + Utf8 [com.example.bluetooth.le.ACTION_DATA_AVAILABLE]
+  + Utf8 [com.example.bluetooth.le.ACTION_GATT_CONNECTED]
+  + Utf8 [com.example.bluetooth.le.ACTION_GATT_DISCONNECTED]
+  + Utf8 [com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED]
+  + Utf8 [com/example/LED/BluetoothLeService]
+  + Utf8 [com/example/LED/h]
+  + Utf8 [com/example/LED/i]
+  + Utf8 [com/example/LED/j]
+  + Utf8 [com/example/LED/l]
+  + Utf8 [com/example/LED/m]
+  + Utf8 [com/example/LED/n]
+  + Utf8 [com/example/LED/o]
+  + Utf8 [com/example/LED/write]
+  + Utf8 [d]
+  + Utf8 [e]
+  + Utf8 [f]
+  + Utf8 [findItem]
+  + Utf8 [findViewById]
+  + Utf8 [g]
+  + Utf8 [getBitmap]
+  + Utf8 [getDrawable]
+  + Utf8 [getIntent]
+  + Utf8 [getItemId]
+  + Utf8 [getMenuInflater]
+  + Utf8 [getResources]
+  + Utf8 [getSimpleName]
+  + Utf8 [getStringExtra]
+  + Utf8 [h]
+  + Utf8 [i]
+  + Utf8 [inflate]
+  + Utf8 [j]
+  + Utf8 [java/lang/Class]
+  + Utf8 [java/lang/IllegalArgumentException]
+  + Utf8 [java/lang/Integer]
+  + Utf8 [java/lang/String]
+  + Utf8 [java/util/Timer]
+  + Utf8 [k]
+  + Utf8 [l]
+  + Utf8 [m]
+  + Utf8 [n]
+  + Utf8 [onBackPressed]
+  + Utf8 [onCreate]
+  + Utf8 [onCreateOptionsMenu]
+  + Utf8 [onDestroy]
+  + Utf8 [onOptionsItemSelected]
+  + Utf8 [onPause]
+  + Utf8 [onResume]
+  + Utf8 [parseInt]
+  + Utf8 [registerReceiver]
+  + Utf8 [schedule]
+  + Utf8 [setContentView]
+  + Utf8 [setOnCheckedChangeListener]
+  + Utf8 [setOnClickListener]
+  + Utf8 [setOnTouchListener]
+  + Utf8 [setVisible]
+  + Utf8 [unbindService]
+  + Utf8 [unregisterReceiver]
+  + Utf8 [长度不是偶数]
+
+Fields (count = 14):
+  + Field:        b Ljava/lang/String;
+    Access flags: 0x1a
+      = private static final java.lang.String b
+  + Field:        a Lcom/example/LED/BluetoothLeService;
+    Access flags: 0x1
+      = public com.example.LED.BluetoothLeService a
+  + Field:        c Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String c
+  + Field:        d Z
+    Access flags: 0x2
+      = private boolean d
+  + Field:        e Landroid/widget/ImageView;
+    Access flags: 0x2
+      = private android.widget.ImageView e
+  + Field:        f Landroid/graphics/Bitmap;
+    Access flags: 0x2
+      = private android.graphics.Bitmap f
+  + Field:        g Z
+    Access flags: 0x2
+      = private boolean g
+  + Field:        h Ljava/util/Timer;
+    Access flags: 0x2
+      = private java.util.Timer h
+  + Field:        i [B
+    Access flags: 0x2
+      = private byte[] i
+  + Field:        j [B
+    Access flags: 0x2
+      = private byte[] j
+  + Field:        k Ljava/lang/String;
+    Access flags: 0x2
+      = private java.lang.String k
+  + Field:        l Landroid/content/ServiceConnection;
+    Access flags: 0x12
+      = private final android.content.ServiceConnection l
+  + Field:        m Landroid/content/BroadcastReceiver;
+    Access flags: 0x12
+      = private final android.content.BroadcastReceiver m
+  + Field:        n Landroid/os/Handler;
+    Access flags: 0x2
+      = private android.os.Handler n
+
+Methods (count = 23):
+  - Method:       <init>()V
+    Access flags: 0x1
+      = public write()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 95, locals = 1, stack = 5):
+      [0] aload_0 v0
+      [1] invokespecial #56
+        + Methodref [android/app/Activity.<init> ()V]
+      [4] aload_0 v0
+      [5] iconst_0
+      [6] putfield #45
+        + Fieldref [com/example/LED/write.d Z]
+      [9] aload_0 v0
+      [10] iconst_1
+      [11] putfield #48
+        + Fieldref [com/example/LED/write.g Z]
+      [14] aload_0 v0
+      [15] iconst_3
+      [16] newarray 8
+      [18] dup
+      [19] iconst_0
+      [20] iconst_m1
+      [21] bastore
+      [22] dup
+      [23] iconst_1
+      [24] iconst_m1
+      [25] bastore
+      [26] dup
+      [27] iconst_2
+      [28] iconst_m1
+      [29] bastore
+      [30] putfield #50
+        + Fieldref [com/example/LED/write.i [B]
+      [33] aload_0 v0
+      [34] iconst_3
+      [35] newarray 8
+      [37] dup
+      [38] iconst_0
+      [39] iconst_0
+      [40] bastore
+      [41] dup
+      [42] iconst_1
+      [43] iconst_0
+      [44] bastore
+      [45] dup
+      [46] iconst_2
+      [47] iconst_0
+      [48] bastore
+      [49] putfield #51
+        + Fieldref [com/example/LED/write.j [B]
+      [52] aload_0 v0
+      [53] ldc #9
+        + String [0000fff1-0000-1000-8000-00805f9b34fb]
+      [55] putfield #52
+        + Fieldref [com/example/LED/write.k Ljava/lang/String;]
+      [58] aload_0 v0
+      [59] new #29
+        + Class [com/example/LED/h]
+      [62] dup
+      [63] aload_0 v0
+      [64] invokespecial #74
+        + Methodref [com/example/LED/h.<init> (Lcom/example/LED/write;)V]
+      [67] putfield #53
+        + Fieldref [com/example/LED/write.l Landroid/content/ServiceConnection;]
+      [70] aload_0 v0
+      [71] new #30
+        + Class [com/example/LED/i]
+      [74] dup
+      [75] aload_0 v0
+      [76] invokespecial #75
+        + Methodref [com/example/LED/i.<init> (Lcom/example/LED/write;)V]
+      [79] putfield #54
+        + Fieldref [com/example/LED/write.m Landroid/content/BroadcastReceiver;]
+      [82] aload_0 v0
+      [83] new #34
+        + Class [com/example/LED/n]
+      [86] dup
+      [87] aload_0 v0
+      [88] invokespecial #79
+        + Methodref [com/example/LED/n.<init> (Lcom/example/LED/write;)V]
+      [91] putfield #55
+        + Fieldref [com/example/LED/write.n Landroid/os/Handler;]
+      [94] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onCreate(Landroid/os/Bundle;)V
+    Access flags: 0x1
+      = public void onCreate(android.os.Bundle)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 148, locals = 7, stack = 4):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] invokespecial #57
+        + Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
+      [5] aload_0 v0
+      [6] ldc #2
+        + Integer [2130903041]
+      [8] invokevirtual #90
+        + Methodref [com/example/LED/write.setContentView (I)V]
+      [11] aload_0 v0
+      [12] invokevirtual #85
+        + Methodref [com/example/LED/write.getIntent ()Landroid/content/Intent;]
+      [15] astore_2 v2
+      [16] aload_0 v0
+      [17] aload_2 v2
+      [18] ldc #10
+        + String [DEVICE_ADDRESS]
+      [20] invokevirtual #63
+        + Methodref [android/content/Intent.getStringExtra (Ljava/lang/String;)Ljava/lang/String;]
+      [23] putfield #44
+        + Fieldref [com/example/LED/write.c Ljava/lang/String;]
+      [26] aload_0 v0
+      [27] ldc #4
+        + Integer [2131099650]
+      [29] invokevirtual #84
+        + Methodref [com/example/LED/write.findViewById (I)Landroid/view/View;]
+      [32] checkcast #27
+        + Class [android/widget/ToggleButton]
+      [35] astore_3 v3
+      [36] aload_0 v0
+      [37] aload_0 v0
+      [38] ldc #6
+        + Integer [2131099652]
+      [40] invokevirtual #84
+        + Methodref [com/example/LED/write.findViewById (I)Landroid/view/View;]
+      [43] checkcast #26
+        + Class [android/widget/ImageView]
+      [46] putfield #46
+        + Fieldref [com/example/LED/write.e Landroid/widget/ImageView;]
+      [49] aload_0 v0
+      [50] invokevirtual #87
+        + Methodref [com/example/LED/write.getResources ()Landroid/content/res/Resources;]
+      [53] ldc #1
+        + Integer [2130837505]
+      [55] invokevirtual #66
+        + Methodref [android/content/res/Resources.getDrawable (I)Landroid/graphics/drawable/Drawable;]
+      [58] checkcast #21
+        + Class [android/graphics/drawable/BitmapDrawable]
+      [61] astore v4
+      [63] aload_0 v0
+      [64] aload v4
+      [66] invokevirtual #67
+        + Methodref [android/graphics/drawable/BitmapDrawable.getBitmap ()Landroid/graphics/Bitmap;]
+      [69] putfield #47
+        + Fieldref [com/example/LED/write.f Landroid/graphics/Bitmap;]
+      [72] aload_0 v0
+      [73] ldc #5
+        + Integer [2131099651]
+      [75] invokevirtual #84
+        + Methodref [com/example/LED/write.findViewById (I)Landroid/view/View;]
+      [78] checkcast #25
+        + Class [android/widget/Button]
+      [81] astore v5
+      [83] aload v5
+      [85] new #31
+        + Class [com/example/LED/j]
+      [88] dup
+      [89] aload_0 v0
+      [90] invokespecial #76
+        + Methodref [com/example/LED/j.<init> (Lcom/example/LED/write;)V]
+      [93] invokevirtual #69
+        + Methodref [android/widget/Button.setOnClickListener (Landroid/view/View$OnClickListener;)V]
+      [96] aload_0 v0
+      [97] getfield #46
+        + Fieldref [com/example/LED/write.e Landroid/widget/ImageView;]
+      [100] new #32
+        + Class [com/example/LED/l]
+      [103] dup
+      [104] aload_0 v0
+      [105] invokespecial #77
+        + Methodref [com/example/LED/l.<init> (Lcom/example/LED/write;)V]
+      [108] invokevirtual #70
+        + Methodref [android/widget/ImageView.setOnTouchListener (Landroid/view/View$OnTouchListener;)V]
+      [111] aload_3 v3
+      [112] new #33
+        + Class [com/example/LED/m]
+      [115] dup
+      [116] aload_0 v0
+      [117] invokespecial #78
+        + Methodref [com/example/LED/m.<init> (Lcom/example/LED/write;)V]
+      [120] invokevirtual #71
+        + Methodref [android/widget/ToggleButton.setOnCheckedChangeListener (Landroid/widget/CompoundButton$OnCheckedChangeListener;)V]
+      [123] new #18
+        + Class [android/content/Intent]
+      [126] dup
+      [127] aload_0 v0
+      [128] ldc #28
+        + Class [com/example/LED/BluetoothLeService]
+      [130] invokespecial #62
+        + Methodref [android/content/Intent.<init> (Landroid/content/Context;Ljava/lang/Class;)V]
+      [133] astore v6
+      [135] aload_0 v0
+      [136] aload v6
+      [138] aload_0 v0
+      [139] getfield #53
+        + Fieldref [com/example/LED/write.l Landroid/content/ServiceConnection;]
+      [142] iconst_1
+      [143] invokevirtual #83
+        + Methodref [com/example/LED/write.bindService (Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z]
+      [146] pop
+      [147] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onResume()V
+    Access flags: 0x4
+      = protected void onResume()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 17, locals = 1, stack = 3):
+      [0] aload_0 v0
+      [1] invokespecial #61
+        + Methodref [android/app/Activity.onResume ()V]
+      [4] aload_0 v0
+      [5] aload_0 v0
+      [6] getfield #54
+        + Fieldref [com/example/LED/write.m Landroid/content/BroadcastReceiver;]
+      [9] invokestatic #82
+        + Methodref [com/example/LED/write.b ()Landroid/content/IntentFilter;]
+      [12] invokevirtual #89
+        + Methodref [com/example/LED/write.registerReceiver (Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;]
+      [15] pop
+      [16] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onCreateOptionsMenu(Landroid/view/Menu;)Z
+    Access flags: 0x1
+      = public boolean onCreateOptionsMenu(android.view.Menu)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 82, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] invokevirtual #86
+        + Methodref [com/example/LED/write.getMenuInflater ()Landroid/view/MenuInflater;]
+      [4] ldc #3
+        + Integer [2131034112]
+      [6] aload_1 v1
+      [7] invokevirtual #68
+        + Methodref [android/view/MenuInflater.inflate (ILandroid/view/Menu;)V]
+      [10] aload_0 v0
+      [11] getfield #45
+        + Fieldref [com/example/LED/write.d Z]
+      [14] ifeq +36 (target=50)
+      [17] aload_1 v1
+      [18] ldc #7
+        + Integer [2131099653]
+      [20] invokeinterface #98
+        + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+      [25] iconst_0
+      [26] invokeinterface #100
+        + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+      [31] pop
+      [32] aload_1 v1
+      [33] ldc #8
+        + Integer [2131099654]
+      [35] invokeinterface #98
+        + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+      [40] iconst_1
+      [41] invokeinterface #100
+        + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+      [46] pop
+      [47] goto +33 (target=80)
+      [50] aload_1 v1
+      [51] ldc #7
+        + Integer [2131099653]
+      [53] invokeinterface #98
+        + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+      [58] iconst_1
+      [59] invokeinterface #100
+        + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+      [64] pop
+      [65] aload_1 v1
+      [66] ldc #8
+        + Integer [2131099654]
+      [68] invokeinterface #98
+        + InterfaceMethodref [android/view/Menu.findItem (I)Landroid/view/MenuItem;]
+      [73] iconst_0
+      [74] invokeinterface #100
+        + InterfaceMethodref [android/view/MenuItem.setVisible (Z)Landroid/view/MenuItem;]
+      [79] pop
+      [80] iconst_1
+      [81] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [50] Var: ..., Stack: (empty)
+        - [80] Var: ..., Stack: (empty)
+  + Method:       onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    Access flags: 0x1
+      = public boolean onOptionsItemSelected(android.view.MenuItem)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 75, locals = 2, stack = 2):
+      [0] aload_1 v1
+      [1] invokeinterface #99
+        + InterfaceMethodref [android/view/MenuItem.getItemId ()I]
+      [6] lookupswitch (3 offsets, default=63) (target=69)
+        16908332: offset = 57, target = 63
+        2131099653: offset = 34, target = 40
+        2131099654: offset = 48, target = 54
+        default: offset = 63, target = 69
+      [40] aload_0 v0
+      [41] getfield #42
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [44] aload_0 v0
+      [45] getfield #44
+        + Fieldref [com/example/LED/write.c Ljava/lang/String;]
+      [48] invokevirtual #72
+        + Methodref [com/example/LED/BluetoothLeService.a (Ljava/lang/String;)Z]
+      [51] pop
+      [52] iconst_1
+      [53] ireturn
+      [54] aload_0 v0
+      [55] getfield #42
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [58] invokevirtual #73
+        + Methodref [com/example/LED/BluetoothLeService.b ()V]
+      [61] iconst_1
+      [62] ireturn
+      [63] aload_0 v0
+      [64] invokevirtual #88
+        + Methodref [com/example/LED/write.onBackPressed ()V]
+      [67] iconst_1
+      [68] ireturn
+      [69] aload_0 v0
+      [70] aload_1 v1
+      [71] invokespecial #59
+        + Methodref [android/app/Activity.onOptionsItemSelected (Landroid/view/MenuItem;)Z]
+      [74] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 4):
+        - [40] Var: ..., Stack: (empty)
+        - [54] Var: ..., Stack: (empty)
+        - [63] Var: ..., Stack: (empty)
+        - [69] Var: ..., Stack: (empty)
+  + Method:       onPause()V
+    Access flags: 0x4
+      = protected void onPause()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 13, locals = 1, stack = 2):
+      [0] aload_0 v0
+      [1] invokespecial #60
+        + Methodref [android/app/Activity.onPause ()V]
+      [4] aload_0 v0
+      [5] aload_0 v0
+      [6] getfield #54
+        + Fieldref [com/example/LED/write.m Landroid/content/BroadcastReceiver;]
+      [9] invokevirtual #92
+        + Methodref [com/example/LED/write.unregisterReceiver (Landroid/content/BroadcastReceiver;)V]
+      [12] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onDestroy()V
+    Access flags: 0x4
+      = protected void onDestroy()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 18, locals = 1, stack = 2):
+      [0] aload_0 v0
+      [1] invokespecial #58
+        + Methodref [android/app/Activity.onDestroy ()V]
+      [4] aload_0 v0
+      [5] aload_0 v0
+      [6] getfield #53
+        + Fieldref [com/example/LED/write.l Landroid/content/ServiceConnection;]
+      [9] invokevirtual #91
+        + Methodref [com/example/LED/write.unbindService (Landroid/content/ServiceConnection;)V]
+      [12] aload_0 v0
+      [13] aconst_null
+      [14] putfield #42
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [17] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       b()Landroid/content/IntentFilter;
+    Access flags: 0xa
+      = private static android.content.IntentFilter b()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 34, locals = 1, stack = 2):
+      [0] new #19
+        + Class [android/content/IntentFilter]
+      [3] dup
+      [4] invokespecial #64
+        + Methodref [android/content/IntentFilter.<init> ()V]
+      [7] astore_0 v0
+      [8] aload_0 v0
+      [9] ldc #12
+        + String [com.example.bluetooth.le.ACTION_GATT_CONNECTED]
+      [11] invokevirtual #65
+        + Methodref [android/content/IntentFilter.addAction (Ljava/lang/String;)V]
+      [14] aload_0 v0
+      [15] ldc #13
+        + String [com.example.bluetooth.le.ACTION_GATT_DISCONNECTED]
+      [17] invokevirtual #65
+        + Methodref [android/content/IntentFilter.addAction (Ljava/lang/String;)V]
+      [20] aload_0 v0
+      [21] ldc #14
+        + String [com.example.bluetooth.le.ACTION_GATT_SERVICES_DISCOVERED]
+      [23] invokevirtual #65
+        + Methodref [android/content/IntentFilter.addAction (Ljava/lang/String;)V]
+      [26] aload_0 v0
+      [27] ldc #11
+        + String [com.example.bluetooth.le.ACTION_DATA_AVAILABLE]
+      [29] invokevirtual #65
+        + Methodref [android/content/IntentFilter.addAction (Ljava/lang/String;)V]
+      [32] aload_0 v0
+      [33] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a([B)[B
+    Access flags: 0x9
+      = public static byte[] a(byte[])
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 65, locals = 4, stack = 5):
+      [0] aload_0 v0
+      [1] arraylength
+      [2] iconst_2
+      [3] irem
+      [4] ifeq +13 (target=17)
+      [7] new #38
+        + Class [java/lang/IllegalArgumentException]
+      [10] dup
+      [11] ldc #15
+        + String [长度不是偶数]
+      [13] invokespecial #94
+        + Methodref [java/lang/IllegalArgumentException.<init> (Ljava/lang/String;)V]
+      [16] athrow
+      [17] aload_0 v0
+      [18] arraylength
+      [19] iconst_2
+      [20] idiv
+      [21] newarray 8
+      [23] astore_1 v1
+      [24] iconst_0
+      [25] istore_2 v2
+      [26] iload_2 v2
+      [27] aload_0 v0
+      [28] arraylength
+      [29] ificmpge +32 (target=61)
+      [32] new #40
+        + Class [java/lang/String]
+      [35] dup
+      [36] aload_0 v0
+      [37] iload_2 v2
+      [38] iconst_2
+      [39] invokespecial #96
+        + Methodref [java/lang/String.<init> ([BII)V]
+      [42] astore_3 v3
+      [43] aload_1 v1
+      [44] iload_2 v2
+      [45] iconst_2
+      [46] idiv
+      [47] aload_3 v3
+      [48] bipush 16
+      [50] invokestatic #95
+        + Methodref [java/lang/Integer.parseInt (Ljava/lang/String;I)I]
+      [53] i2b
+      [54] bastore
+      [55] iinc v2, 2
+      [58] goto -32 (target=26)
+      [61] aconst_null
+      [62] astore_0 v0
+      [63] aload_1 v1
+      [64] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 3):
+        - [17] Var: ..., Stack: (empty)
+        - [26] Var: ...[a:[B][i], Stack: (empty)
+        - [61] Var: -1, Stack: (empty)
+  + Method:       a(Ljava/util/Date;)V
+    Access flags: 0x2
+      = private void a(java.util.Date)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 17, locals = 2, stack = 4):
+      [0] aload_0 v0
+      [1] getfield #49
+        + Fieldref [com/example/LED/write.h Ljava/util/Timer;]
+      [4] new #35
+        + Class [com/example/LED/o]
+      [7] dup
+      [8] aload_0 v0
+      [9] invokespecial #80
+        + Methodref [com/example/LED/o.<init> (Lcom/example/LED/write;)V]
+      [12] aload_1 v1
+      [13] invokevirtual #97
+        + Methodref [java/util/Timer.schedule (Ljava/util/TimerTask;Ljava/util/Date;)V]
+      [16] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lcom/example/LED/write;)Ljava/lang/String;
+    Access flags: 0x1008
+      = static synthetic java.lang.String a(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #52
+        + Fieldref [com/example/LED/write.k Ljava/lang/String;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       b(Lcom/example/LED/write;)[B
+    Access flags: 0x1008
+      = static synthetic byte[] b(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #50
+        + Fieldref [com/example/LED/write.i [B]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a()Ljava/lang/String;
+    Access flags: 0x1008
+      = static synthetic java.lang.String a()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 4, locals = 0, stack = 1):
+      [0] getstatic #43
+        + Fieldref [com/example/LED/write.b Ljava/lang/String;]
+      [3] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       c(Lcom/example/LED/write;)Ljava/lang/String;
+    Access flags: 0x1008
+      = static synthetic java.lang.String c(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #44
+        + Fieldref [com/example/LED/write.c Ljava/lang/String;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lcom/example/LED/write;Z)Z
+    Access flags: 0x1008
+      = static synthetic boolean a(com.example.LED.write,boolean)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 7, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] iload_1 v1
+      [2] dup_x1
+      [3] putfield #45
+        + Fieldref [com/example/LED/write.d Z]
+      [6] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lcom/example/LED/write;Ljava/util/Timer;)Ljava/util/Timer;
+    Access flags: 0x1008
+      = static synthetic java.util.Timer a(com.example.LED.write,java.util.Timer)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 7, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] dup_x1
+      [3] putfield #49
+        + Fieldref [com/example/LED/write.h Ljava/util/Timer;]
+      [6] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       a(Lcom/example/LED/write;Ljava/util/Date;)V
+    Access flags: 0x1008
+      = static synthetic void a(com.example.LED.write,java.util.Date)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 6, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] invokespecial #81
+        + Methodref [com/example/LED/write.a (Ljava/util/Date;)V]
+      [5] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       d(Lcom/example/LED/write;)Landroid/graphics/Bitmap;
+    Access flags: 0x1008
+      = static synthetic android.graphics.Bitmap d(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #47
+        + Fieldref [com/example/LED/write.f Landroid/graphics/Bitmap;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       e(Lcom/example/LED/write;)Z
+    Access flags: 0x1008
+      = static synthetic boolean e(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #48
+        + Fieldref [com/example/LED/write.g Z]
+      [4] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       f(Lcom/example/LED/write;)Landroid/os/Handler;
+    Access flags: 0x1008
+      = static synthetic android.os.Handler f(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #55
+        + Fieldref [com/example/LED/write.n Landroid/os/Handler;]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       b(Lcom/example/LED/write;Z)Z
+    Access flags: 0x1008
+      = static synthetic boolean b(com.example.LED.write,boolean)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 7, locals = 2, stack = 3):
+      [0] aload_0 v0
+      [1] iload_1 v1
+      [2] dup_x1
+      [3] putfield #48
+        + Fieldref [com/example/LED/write.g Z]
+      [6] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       g(Lcom/example/LED/write;)[B
+    Access flags: 0x1008
+      = static synthetic byte[] g(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 5, locals = 1, stack = 1):
+      [0] aload_0 v0
+      [1] getfield #51
+        + Fieldref [com/example/LED/write.j [B]
+      [4] areturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  - Method:       <clinit>()V
+    Access flags: 0x8
+      = static void <clinit>()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 9, locals = 0, stack = 1):
+      [0] ldc #36
+        + Class [com/example/LED/write]
+      [2] invokevirtual #93
+        + Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
+      [5] putstatic #43
+        + Fieldref [com/example/LED/write.b Ljava/lang/String;]
+      [8] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/h
+  Superclass:    java/lang/Object
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.h extends java.lang.Object
+
+Interfaces (count = 1):
+  + Class [android/content/ServiceConnection]
+
+Constant Pool (count = 73):
+  + String [Unable to initialize Bluetooth]
+  + Class [android/content/ServiceConnection]
+  + Class [android/util/Log]
+  + Class [com/example/LED/BluetoothLeService]
+  + Class [com/example/LED/b]
+  + Class [com/example/LED/h]
+  + Class [com/example/LED/write]
+  + Class [java/lang/Object]
+  + Class [java/util/UUID]
+  + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+  + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+  + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
+  + Methodref [com/example/LED/BluetoothLeService.a ()Z]
+  + Methodref [com/example/LED/BluetoothLeService.a (Ljava/lang/String;)Z]
+  + Methodref [com/example/LED/BluetoothLeService.a (Ljava/util/UUID;[B)V]
+  + Methodref [com/example/LED/b.a ()Lcom/example/LED/BluetoothLeService;]
+  + Methodref [com/example/LED/write.a ()Ljava/lang/String;]
+  + Methodref [com/example/LED/write.a (Lcom/example/LED/write;)Ljava/lang/String;]
+  + Methodref [com/example/LED/write.b (Lcom/example/LED/write;)[B]
+  + Methodref [com/example/LED/write.c (Lcom/example/LED/write;)Ljava/lang/String;]
+  + Methodref [com/example/LED/write.finish ()V]
+  + Methodref [java/lang/Object.<init> ()V]
+  + Methodref [java/util/UUID.fromString (Ljava/lang/String;)Ljava/util/UUID;]
+  + NameAndType [<init> ()V]
+  + NameAndType [a ()Lcom/example/LED/BluetoothLeService;]
+  + NameAndType [a ()Ljava/lang/String;]
+  + NameAndType [a ()Z]
+  + NameAndType [a (Lcom/example/LED/write;)Ljava/lang/String;]
+  + NameAndType [a (Ljava/lang/String;)Z]
+  + NameAndType [a (Ljava/util/UUID;[B)V]
+  + NameAndType [a Lcom/example/LED/BluetoothLeService;]
+  + NameAndType [a Lcom/example/LED/write;]
+  + NameAndType [b (Lcom/example/LED/write;)[B]
+  + NameAndType [c (Lcom/example/LED/write;)Ljava/lang/String;]
+  + NameAndType [e (Ljava/lang/String;Ljava/lang/String;)I]
+  + NameAndType [finish ()V]
+  + NameAndType [fromString (Ljava/lang/String;)Ljava/util/UUID;]
+  + Utf8 [()Lcom/example/LED/BluetoothLeService;]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [()Z]
+  + Utf8 [(Landroid/content/ComponentName;)V]
+  + Utf8 [(Landroid/content/ComponentName;Landroid/os/IBinder;)V]
+  + Utf8 [(Lcom/example/LED/write;)Ljava/lang/String;]
+  + Utf8 [(Lcom/example/LED/write;)V]
+  + Utf8 [(Lcom/example/LED/write;)[B]
+  + Utf8 [(Ljava/lang/String;)Ljava/util/UUID;]
+  + Utf8 [(Ljava/lang/String;)Z]
+  + Utf8 [(Ljava/lang/String;Ljava/lang/String;)I]
+  + Utf8 [(Ljava/util/UUID;[B)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Lcom/example/LED/BluetoothLeService;]
+  + Utf8 [Lcom/example/LED/write;]
+  + Utf8 [StackMapTable]
+  + Utf8 [Unable to initialize Bluetooth]
+  + Utf8 [a]
+  + Utf8 [android/content/ServiceConnection]
+  + Utf8 [android/util/Log]
+  + Utf8 [b]
+  + Utf8 [c]
+  + Utf8 [com/example/LED/BluetoothLeService]
+  + Utf8 [com/example/LED/b]
+  + Utf8 [com/example/LED/h]
+  + Utf8 [com/example/LED/write]
+  + Utf8 [e]
+  + Utf8 [finish]
+  + Utf8 [fromString]
+  + Utf8 [java/lang/Object]
+  + Utf8 [java/util/UUID]
+  + Utf8 [onServiceConnected]
+  + Utf8 [onServiceDisconnected]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/write;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.write a
+
+Methods (count = 3):
+  - Method:       <init>(Lcom/example/LED/write;)V
+    Access flags: 0x0
+      = h(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [5] aload_0 v0
+      [6] invokespecial #22
+        + Methodref [java/lang/Object.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+    Access flags: 0x1
+      = public void onServiceConnected(android.content.ComponentName,android.os.IBinder)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 89, locals = 3, stack = 3):
+      [0] aload_0 v0
+      [1] getfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [4] aload_2 v2
+      [5] checkcast #5
+        + Class [com/example/LED/b]
+      [8] invokevirtual #16
+        + Methodref [com/example/LED/b.a ()Lcom/example/LED/BluetoothLeService;]
+      [11] putfield #11
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [14] aload_0 v0
+      [15] getfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [18] getfield #11
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [21] aload_0 v0
+      [22] getfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [25] invokestatic #18
+        + Methodref [com/example/LED/write.a (Lcom/example/LED/write;)Ljava/lang/String;]
+      [28] invokestatic #23
+        + Methodref [java/util/UUID.fromString (Ljava/lang/String;)Ljava/util/UUID;]
+      [31] aload_0 v0
+      [32] getfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [35] invokestatic #19
+        + Methodref [com/example/LED/write.b (Lcom/example/LED/write;)[B]
+      [38] invokevirtual #15
+        + Methodref [com/example/LED/BluetoothLeService.a (Ljava/util/UUID;[B)V]
+      [41] aload_0 v0
+      [42] getfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [45] getfield #11
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [48] invokevirtual #13
+        + Methodref [com/example/LED/BluetoothLeService.a ()Z]
+      [51] ifne +19 (target=70)
+      [54] invokestatic #17
+        + Methodref [com/example/LED/write.a ()Ljava/lang/String;]
+      [57] ldc #1
+        + String [Unable to initialize Bluetooth]
+      [59] invokestatic #12
+        + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
+      [62] pop
+      [63] aload_0 v0
+      [64] getfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [67] invokevirtual #21
+        + Methodref [com/example/LED/write.finish ()V]
+      [70] aload_0 v0
+      [71] getfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [74] getfield #11
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [77] aload_0 v0
+      [78] getfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [81] invokestatic #20
+        + Methodref [com/example/LED/write.c (Lcom/example/LED/write;)Ljava/lang/String;]
+      [84] invokevirtual #14
+        + Methodref [com/example/LED/BluetoothLeService.a (Ljava/lang/String;)Z]
+      [87] pop
+      [88] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 1):
+        - [70] Var: ..., Stack: (empty)
+  + Method:       onServiceDisconnected(Landroid/content/ComponentName;)V
+    Access flags: 0x1
+      = public void onServiceDisconnected(android.content.ComponentName)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 9, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] getfield #10
+        + Fieldref [com/example/LED/h.a Lcom/example/LED/write;]
+      [4] aconst_null
+      [5] putfield #11
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [8] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/i
+  Superclass:    android/content/BroadcastReceiver
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.i extends android.content.BroadcastReceiver
+
+Interfaces (count = 0):
+
+Constant Pool (count = 42):
+  + String [com.example.bluetooth.le.ACTION_GATT_CONNECTED]
+  + String [com.example.bluetooth.le.ACTION_GATT_DISCONNECTED]
+  + Class [android/content/BroadcastReceiver]
+  + Class [android/content/Intent]
+  + Class [com/example/LED/i]
+  + Class [com/example/LED/write]
+  + Class [java/lang/String]
+  + Fieldref [com/example/LED/i.a Lcom/example/LED/write;]
+  + Methodref [android/content/BroadcastReceiver.<init> ()V]
+  + Methodref [android/content/Intent.getAction ()Ljava/lang/String;]
+  + Methodref [com/example/LED/write.a (Lcom/example/LED/write;Z)Z]
+  + Methodref [com/example/LED/write.invalidateOptionsMenu ()V]
+  + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+  + NameAndType [<init> ()V]
+  + NameAndType [a (Lcom/example/LED/write;Z)Z]
+  + NameAndType [a Lcom/example/LED/write;]
+  + NameAndType [equals (Ljava/lang/Object;)Z]
+  + NameAndType [getAction ()Ljava/lang/String;]
+  + NameAndType [invalidateOptionsMenu ()V]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [(Landroid/content/Context;Landroid/content/Intent;)V]
+  + Utf8 [(Lcom/example/LED/write;)V]
+  + Utf8 [(Lcom/example/LED/write;Z)Z]
+  + Utf8 [(Ljava/lang/Object;)Z]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Lcom/example/LED/write;]
+  + Utf8 [StackMapTable]
+  + Utf8 [a]
+  + Utf8 [android/content/BroadcastReceiver]
+  + Utf8 [android/content/Intent]
+  + Utf8 [com.example.bluetooth.le.ACTION_GATT_CONNECTED]
+  + Utf8 [com.example.bluetooth.le.ACTION_GATT_DISCONNECTED]
+  + Utf8 [com/example/LED/i]
+  + Utf8 [com/example/LED/write]
+  + Utf8 [equals]
+  + Utf8 [getAction]
+  + Utf8 [invalidateOptionsMenu]
+  + Utf8 [java/lang/String]
+  + Utf8 [onReceive]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/write;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.write a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/write;)V
+    Access flags: 0x0
+      = i(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #8
+        + Fieldref [com/example/LED/i.a Lcom/example/LED/write;]
+      [5] aload_0 v0
+      [6] invokespecial #9
+        + Methodref [android/content/BroadcastReceiver.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    Access flags: 0x1
+      = public void onReceive(android.content.Context,android.content.Intent)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 59, locals = 4, stack = 2):
+      [0] aload_2 v2
+      [1] invokevirtual #10
+        + Methodref [android/content/Intent.getAction ()Ljava/lang/String;]
+      [4] astore_3 v3
+      [5] ldc #1
+        + String [com.example.bluetooth.le.ACTION_GATT_CONNECTED]
+      [7] aload_3 v3
+      [8] invokevirtual #13
+        + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [11] ifeq +22 (target=33)
+      [14] aload_0 v0
+      [15] getfield #8
+        + Fieldref [com/example/LED/i.a Lcom/example/LED/write;]
+      [18] iconst_1
+      [19] invokestatic #11
+        + Methodref [com/example/LED/write.a (Lcom/example/LED/write;Z)Z]
+      [22] pop
+      [23] aload_0 v0
+      [24] getfield #8
+        + Fieldref [com/example/LED/i.a Lcom/example/LED/write;]
+      [27] invokevirtual #12
+        + Methodref [com/example/LED/write.invalidateOptionsMenu ()V]
+      [30] goto +28 (target=58)
+      [33] ldc #2
+        + String [com.example.bluetooth.le.ACTION_GATT_DISCONNECTED]
+      [35] aload_3 v3
+      [36] invokevirtual #13
+        + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
+      [39] ifeq +19 (target=58)
+      [42] aload_0 v0
+      [43] getfield #8
+        + Fieldref [com/example/LED/i.a Lcom/example/LED/write;]
+      [46] iconst_0
+      [47] invokestatic #11
+        + Methodref [com/example/LED/write.a (Lcom/example/LED/write;Z)Z]
+      [50] pop
+      [51] aload_0 v0
+      [52] getfield #8
+        + Fieldref [com/example/LED/i.a Lcom/example/LED/write;]
+      [55] invokevirtual #12
+        + Methodref [com/example/LED/write.invalidateOptionsMenu ()V]
+      [58] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [33] Var: ...[a:java/lang/String], Stack: (empty)
+        - [58] Var: ..., Stack: (empty)
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/j
+  Superclass:    java/lang/Object
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.j extends java.lang.Object
+
+Interfaces (count = 1):
+  + Class [android/view/View$OnClickListener]
+
+Constant Pool (count = 42):
+  + Class [android/app/TimePickerDialog]
+  + Class [android/view/View$OnClickListener]
+  + Class [com/example/LED/j]
+  + Class [com/example/LED/k]
+  + Class [java/lang/Object]
+  + Class [java/util/Calendar]
+  + Fieldref [com/example/LED/j.a Lcom/example/LED/write;]
+  + Methodref [android/app/TimePickerDialog.<init> (Landroid/content/Context;ILandroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V]
+  + Methodref [android/app/TimePickerDialog.show ()V]
+  + Methodref [com/example/LED/k.<init> (Lcom/example/LED/j;)V]
+  + Methodref [java/lang/Object.<init> ()V]
+  + Methodref [java/util/Calendar.get (I)I]
+  + Methodref [java/util/Calendar.getInstance ()Ljava/util/Calendar;]
+  + NameAndType [<init> ()V]
+  + NameAndType [<init> (Landroid/content/Context;ILandroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V]
+  + NameAndType [<init> (Lcom/example/LED/j;)V]
+  + NameAndType [a Lcom/example/LED/write;]
+  + NameAndType [get (I)I]
+  + NameAndType [getInstance ()Ljava/util/Calendar;]
+  + NameAndType [show ()V]
+  + Utf8 [()Ljava/util/Calendar;]
+  + Utf8 [()V]
+  + Utf8 [(I)I]
+  + Utf8 [(Landroid/content/Context;ILandroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V]
+  + Utf8 [(Landroid/view/View;)V]
+  + Utf8 [(Lcom/example/LED/j;)V]
+  + Utf8 [(Lcom/example/LED/write;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Lcom/example/LED/write;]
+  + Utf8 [a]
+  + Utf8 [android/app/TimePickerDialog]
+  + Utf8 [android/view/View$OnClickListener]
+  + Utf8 [com/example/LED/j]
+  + Utf8 [com/example/LED/k]
+  + Utf8 [get]
+  + Utf8 [getInstance]
+  + Utf8 [java/lang/Object]
+  + Utf8 [java/util/Calendar]
+  + Utf8 [onClick]
+  + Utf8 [show]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/write;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.write a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/write;)V
+    Access flags: 0x0
+      = j(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #7
+        + Fieldref [com/example/LED/j.a Lcom/example/LED/write;]
+      [5] aload_0 v0
+      [6] invokespecial #11
+        + Methodref [java/lang/Object.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onClick(Landroid/view/View;)V
+    Access flags: 0x1
+      = public void onClick(android.view.View)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 41, locals = 3, stack = 8):
+      [0] invokestatic #13
+        + Methodref [java/util/Calendar.getInstance ()Ljava/util/Calendar;]
+      [3] astore_2 v2
+      [4] new #1
+        + Class [android/app/TimePickerDialog]
+      [7] dup
+      [8] aload_0 v0
+      [9] getfield #7
+        + Fieldref [com/example/LED/j.a Lcom/example/LED/write;]
+      [12] iconst_0
+      [13] new #4
+        + Class [com/example/LED/k]
+      [16] dup
+      [17] aload_0 v0
+      [18] invokespecial #10
+        + Methodref [com/example/LED/k.<init> (Lcom/example/LED/j;)V]
+      [21] aload_2 v2
+      [22] bipush 11
+      [24] invokevirtual #12
+        + Methodref [java/util/Calendar.get (I)I]
+      [27] aload_2 v2
+      [28] bipush 12
+      [30] invokevirtual #12
+        + Methodref [java/util/Calendar.get (I)I]
+      [33] iconst_1
+      [34] invokespecial #8
+        + Methodref [android/app/TimePickerDialog.<init> (Landroid/content/Context;ILandroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V]
+      [37] invokevirtual #9
+        + Methodref [android/app/TimePickerDialog.show ()V]
+      [40] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/k
+  Superclass:    java/lang/Object
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.k extends java.lang.Object
+
+Interfaces (count = 1):
+  + Class [android/app/TimePickerDialog$OnTimeSetListener]
+
+Constant Pool (count = 45):
+  + Class [android/app/TimePickerDialog$OnTimeSetListener]
+  + Class [com/example/LED/j]
+  + Class [com/example/LED/k]
+  + Class [com/example/LED/write]
+  + Class [java/lang/Object]
+  + Class [java/util/Date]
+  + Class [java/util/Timer]
+  + Fieldref [com/example/LED/j.a Lcom/example/LED/write;]
+  + Fieldref [com/example/LED/k.a Lcom/example/LED/j;]
+  + Methodref [com/example/LED/write.a (Lcom/example/LED/write;Ljava/util/Date;)V]
+  + Methodref [com/example/LED/write.a (Lcom/example/LED/write;Ljava/util/Timer;)Ljava/util/Timer;]
+  + Methodref [java/lang/Object.<init> ()V]
+  + Methodref [java/util/Date.<init> ()V]
+  + Methodref [java/util/Date.setHours (I)V]
+  + Methodref [java/util/Date.setMinutes (I)V]
+  + Methodref [java/util/Timer.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a (Lcom/example/LED/write;Ljava/util/Date;)V]
+  + NameAndType [a (Lcom/example/LED/write;Ljava/util/Timer;)Ljava/util/Timer;]
+  + NameAndType [a Lcom/example/LED/j;]
+  + NameAndType [a Lcom/example/LED/write;]
+  + NameAndType [setHours (I)V]
+  + NameAndType [setMinutes (I)V]
+  + Utf8 [()V]
+  + Utf8 [(I)V]
+  + Utf8 [(Landroid/widget/TimePicker;II)V]
+  + Utf8 [(Lcom/example/LED/j;)V]
+  + Utf8 [(Lcom/example/LED/write;Ljava/util/Date;)V]
+  + Utf8 [(Lcom/example/LED/write;Ljava/util/Timer;)Ljava/util/Timer;]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Lcom/example/LED/j;]
+  + Utf8 [Lcom/example/LED/write;]
+  + Utf8 [a]
+  + Utf8 [android/app/TimePickerDialog$OnTimeSetListener]
+  + Utf8 [com/example/LED/j]
+  + Utf8 [com/example/LED/k]
+  + Utf8 [com/example/LED/write]
+  + Utf8 [java/lang/Object]
+  + Utf8 [java/util/Date]
+  + Utf8 [java/util/Timer]
+  + Utf8 [onTimeSet]
+  + Utf8 [setHours]
+  + Utf8 [setMinutes]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/j;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.j a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/j;)V
+    Access flags: 0x0
+      = k(com.example.LED.j)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #9
+        + Fieldref [com/example/LED/k.a Lcom/example/LED/j;]
+      [5] aload_0 v0
+      [6] invokespecial #12
+        + Methodref [java/lang/Object.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onTimeSet(Landroid/widget/TimePicker;II)V
+    Access flags: 0x1
+      = public void onTimeSet(android.widget.TimePicker,int,int)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 52, locals = 5, stack = 3):
+      [0] new #6
+        + Class [java/util/Date]
+      [3] dup
+      [4] invokespecial #13
+        + Methodref [java/util/Date.<init> ()V]
+      [7] astore v4
+      [9] aload v4
+      [11] iload_2 v2
+      [12] invokevirtual #14
+        + Methodref [java/util/Date.setHours (I)V]
+      [15] aload v4
+      [17] iload_3 v3
+      [18] invokevirtual #15
+        + Methodref [java/util/Date.setMinutes (I)V]
+      [21] aload_0 v0
+      [22] getfield #9
+        + Fieldref [com/example/LED/k.a Lcom/example/LED/j;]
+      [25] getfield #8
+        + Fieldref [com/example/LED/j.a Lcom/example/LED/write;]
+      [28] new #7
+        + Class [java/util/Timer]
+      [31] dup
+      [32] invokespecial #16
+        + Methodref [java/util/Timer.<init> ()V]
+      [35] invokestatic #11
+        + Methodref [com/example/LED/write.a (Lcom/example/LED/write;Ljava/util/Timer;)Ljava/util/Timer;]
+      [38] pop
+      [39] aload_0 v0
+      [40] getfield #9
+        + Fieldref [com/example/LED/k.a Lcom/example/LED/j;]
+      [43] getfield #8
+        + Fieldref [com/example/LED/j.a Lcom/example/LED/write;]
+      [46] aload v4
+      [48] invokestatic #10
+        + Methodref [com/example/LED/write.a (Lcom/example/LED/write;Ljava/util/Date;)V]
+      [51] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/l
+  Superclass:    java/lang/Object
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.l extends java.lang.Object
+
+Interfaces (count = 1):
+  + Class [android/view/View$OnTouchListener]
+
+Constant Pool (count = 107):
+  + Class [android/graphics/Bitmap]
+  + Class [android/graphics/Color]
+  + Class [android/view/MotionEvent]
+  + Class [android/view/View$OnTouchListener]
+  + Class [com/example/LED/BluetoothLeService]
+  + Class [com/example/LED/l]
+  + Class [com/example/LED/write]
+  + Class [java/lang/Integer]
+  + Class [java/lang/Object]
+  + Class [java/lang/String]
+  + Class [java/lang/StringBuilder]
+  + Class [java/util/UUID]
+  + Fieldref [com/example/LED/l.a Lcom/example/LED/write;]
+  + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+  + Methodref [android/graphics/Bitmap.getPixel (II)I]
+  + Methodref [android/graphics/Color.blue (I)I]
+  + Methodref [android/graphics/Color.green (I)I]
+  + Methodref [android/graphics/Color.red (I)I]
+  + Methodref [android/view/MotionEvent.getAction ()I]
+  + Methodref [android/view/MotionEvent.getX ()F]
+  + Methodref [android/view/MotionEvent.getY ()F]
+  + Methodref [com/example/LED/BluetoothLeService.a (Ljava/util/UUID;[B)V]
+  + Methodref [com/example/LED/write.a (Lcom/example/LED/write;)Ljava/lang/String;]
+  + Methodref [com/example/LED/write.a ([B)[B]
+  + Methodref [com/example/LED/write.d (Lcom/example/LED/write;)Landroid/graphics/Bitmap;]
+  + Methodref [com/example/LED/write.e (Lcom/example/LED/write;)Z]
+  + Methodref [java/lang/Integer.toHexString (I)Ljava/lang/String;]
+  + Methodref [java/lang/Object.<init> ()V]
+  + Methodref [java/lang/String.getBytes ()[B]
+  + Methodref [java/lang/String.substring (I)Ljava/lang/String;]
+  + Methodref [java/lang/StringBuilder.<init> ()V]
+  + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+  + Methodref [java/util/UUID.fromString (Ljava/lang/String;)Ljava/util/UUID;]
+  + NameAndType [<init> ()V]
+  + NameAndType [a (Lcom/example/LED/write;)Ljava/lang/String;]
+  + NameAndType [a (Ljava/util/UUID;[B)V]
+  + NameAndType [a ([B)[B]
+  + NameAndType [a Lcom/example/LED/BluetoothLeService;]
+  + NameAndType [a Lcom/example/LED/write;]
+  + NameAndType [append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + NameAndType [blue (I)I]
+  + NameAndType [d (Lcom/example/LED/write;)Landroid/graphics/Bitmap;]
+  + NameAndType [e (Lcom/example/LED/write;)Z]
+  + NameAndType [fromString (Ljava/lang/String;)Ljava/util/UUID;]
+  + NameAndType [getAction ()I]
+  + NameAndType [getBytes ()[B]
+  + NameAndType [getPixel (II)I]
+  + NameAndType [getX ()F]
+  + NameAndType [getY ()F]
+  + NameAndType [green (I)I]
+  + NameAndType [red (I)I]
+  + NameAndType [substring (I)Ljava/lang/String;]
+  + NameAndType [toHexString (I)Ljava/lang/String;]
+  + NameAndType [toString ()Ljava/lang/String;]
+  + Utf8 [()F]
+  + Utf8 [()I]
+  + Utf8 [()Ljava/lang/String;]
+  + Utf8 [()V]
+  + Utf8 [()[B]
+  + Utf8 [(I)I]
+  + Utf8 [(I)Ljava/lang/String;]
+  + Utf8 [(II)I]
+  + Utf8 [(Landroid/view/View;Landroid/view/MotionEvent;)Z]
+  + Utf8 [(Lcom/example/LED/write;)Landroid/graphics/Bitmap;]
+  + Utf8 [(Lcom/example/LED/write;)Ljava/lang/String;]
+  + Utf8 [(Lcom/example/LED/write;)V]
+  + Utf8 [(Lcom/example/LED/write;)Z]
+  + Utf8 [(Ljava/lang/String;)Ljava/lang/StringBuilder;]
+  + Utf8 [(Ljava/lang/String;)Ljava/util/UUID;]
+  + Utf8 [(Ljava/util/UUID;[B)V]
+  + Utf8 [([B)[B]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [Lcom/example/LED/BluetoothLeService;]
+  + Utf8 [Lcom/example/LED/write;]
+  + Utf8 [StackMapTable]
+  + Utf8 [a]
+  + Utf8 [android/graphics/Bitmap]
+  + Utf8 [android/graphics/Color]
+  + Utf8 [android/view/MotionEvent]
+  + Utf8 [android/view/View$OnTouchListener]
+  + Utf8 [append]
+  + Utf8 [blue]
+  + Utf8 [com/example/LED/BluetoothLeService]
+  + Utf8 [com/example/LED/l]
+  + Utf8 [com/example/LED/write]
+  + Utf8 [d]
+  + Utf8 [e]
+  + Utf8 [fromString]
+  + Utf8 [getAction]
+  + Utf8 [getBytes]
+  + Utf8 [getPixel]
+  + Utf8 [getX]
+  + Utf8 [getY]
+  + Utf8 [green]
+  + Utf8 [java/lang/Integer]
+  + Utf8 [java/lang/Object]
+  + Utf8 [java/lang/String]
+  + Utf8 [java/lang/StringBuilder]
+  + Utf8 [java/util/UUID]
+  + Utf8 [onTouch]
+  + Utf8 [red]
+  + Utf8 [substring]
+  + Utf8 [toHexString]
+  + Utf8 [toString]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/write;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.write a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/write;)V
+    Access flags: 0x0
+      = l(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #13
+        + Fieldref [com/example/LED/l.a Lcom/example/LED/write;]
+      [5] aload_0 v0
+      [6] invokespecial #28
+        + Methodref [java/lang/Object.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    Access flags: 0x1
+      = public boolean onTouch(android.view.View,android.view.MotionEvent)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 176, locals = 11, stack = 3):
+      [0] aload_2 v2
+      [1] invokevirtual #20
+        + Methodref [android/view/MotionEvent.getX ()F]
+      [4] f2i
+      [5] istore_3 v3
+      [6] aload_2 v2
+      [7] invokevirtual #21
+        + Methodref [android/view/MotionEvent.getY ()F]
+      [10] f2i
+      [11] istore v4
+      [13] aload_2 v2
+      [14] invokevirtual #19
+        + Methodref [android/view/MotionEvent.getAction ()I]
+      [17] iconst_1
+      [18] ificmpne +156 (target=174)
+      [21] aload_0 v0
+      [22] getfield #13
+        + Fieldref [com/example/LED/l.a Lcom/example/LED/write;]
+      [25] invokestatic #25
+        + Methodref [com/example/LED/write.d (Lcom/example/LED/write;)Landroid/graphics/Bitmap;]
+      [28] iload_3 v3
+      [29] iload v4
+      [31] invokevirtual #15
+        + Methodref [android/graphics/Bitmap.getPixel (II)I]
+      [34] istore v5
+      [36] iload v5
+      [38] invokestatic #18
+        + Methodref [android/graphics/Color.red (I)I]
+      [41] istore v6
+      [43] iload v5
+      [45] invokestatic #16
+        + Methodref [android/graphics/Color.blue (I)I]
+      [48] istore v7
+      [50] iload v5
+      [52] invokestatic #17
+        + Methodref [android/graphics/Color.green (I)I]
+      [55] istore v8
+      [57] new #11
+        + Class [java/lang/StringBuilder]
+      [60] dup
+      [61] invokespecial #31
+        + Methodref [java/lang/StringBuilder.<init> ()V]
+      [64] iload v6
+      [66] sipush 255
+      [69] iand
+      [70] sipush -256
+      [73] ior
+      [74] invokestatic #27
+        + Methodref [java/lang/Integer.toHexString (I)Ljava/lang/String;]
+      [77] bipush 6
+      [79] invokevirtual #30
+        + Methodref [java/lang/String.substring (I)Ljava/lang/String;]
+      [82] invokevirtual #32
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [85] iload v8
+      [87] sipush 255
+      [90] iand
+      [91] sipush -256
+      [94] ior
+      [95] invokestatic #27
+        + Methodref [java/lang/Integer.toHexString (I)Ljava/lang/String;]
+      [98] bipush 6
+      [100] invokevirtual #30
+        + Methodref [java/lang/String.substring (I)Ljava/lang/String;]
+      [103] invokevirtual #32
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [106] iload v7
+      [108] sipush 255
+      [111] iand
+      [112] sipush -256
+      [115] ior
+      [116] invokestatic #27
+        + Methodref [java/lang/Integer.toHexString (I)Ljava/lang/String;]
+      [119] bipush 6
+      [121] invokevirtual #30
+        + Methodref [java/lang/String.substring (I)Ljava/lang/String;]
+      [124] invokevirtual #32
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [127] invokevirtual #33
+        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [130] astore v9
+      [132] aload v9
+      [134] invokevirtual #29
+        + Methodref [java/lang/String.getBytes ()[B]
+      [137] invokestatic #24
+        + Methodref [com/example/LED/write.a ([B)[B]
+      [140] astore v10
+      [142] aload_0 v0
+      [143] getfield #13
+        + Fieldref [com/example/LED/l.a Lcom/example/LED/write;]
+      [146] invokestatic #26
+        + Methodref [com/example/LED/write.e (Lcom/example/LED/write;)Z]
+      [149] ifeq +25 (target=174)
+      [152] aload_0 v0
+      [153] getfield #13
+        + Fieldref [com/example/LED/l.a Lcom/example/LED/write;]
+      [156] getfield #14
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [159] aload_0 v0
+      [160] getfield #13
+        + Fieldref [com/example/LED/l.a Lcom/example/LED/write;]
+      [163] invokestatic #23
+        + Methodref [com/example/LED/write.a (Lcom/example/LED/write;)Ljava/lang/String;]
+      [166] invokestatic #34
+        + Methodref [java/util/UUID.fromString (Ljava/lang/String;)Ljava/util/UUID;]
+      [169] aload v10
+      [171] invokevirtual #22
+        + Methodref [com/example/LED/BluetoothLeService.a (Ljava/util/UUID;[B)V]
+      [174] iconst_1
+      [175] ireturn
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 1):
+        - [174] Var: ...[i][i], Stack: (empty)
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/m
+  Superclass:    java/lang/Object
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.m extends java.lang.Object
+
+Interfaces (count = 1):
+  + Class [android/widget/CompoundButton$OnCheckedChangeListener]
+
+Constant Pool (count = 39):
+  + Class [android/os/Handler]
+  + Class [android/os/Message]
+  + Class [android/widget/CompoundButton$OnCheckedChangeListener]
+  + Class [com/example/LED/m]
+  + Class [com/example/LED/write]
+  + Class [java/lang/Object]
+  + Fieldref [android/os/Message.what I]
+  + Fieldref [com/example/LED/m.a Lcom/example/LED/write;]
+  + Methodref [android/os/Handler.sendMessage (Landroid/os/Message;)Z]
+  + Methodref [android/os/Message.<init> ()V]
+  + Methodref [com/example/LED/write.f (Lcom/example/LED/write;)Landroid/os/Handler;]
+  + Methodref [java/lang/Object.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a Lcom/example/LED/write;]
+  + NameAndType [f (Lcom/example/LED/write;)Landroid/os/Handler;]
+  + NameAndType [sendMessage (Landroid/os/Message;)Z]
+  + NameAndType [what I]
+  + Utf8 [()V]
+  + Utf8 [(Landroid/os/Message;)Z]
+  + Utf8 [(Landroid/widget/CompoundButton;Z)V]
+  + Utf8 [(Lcom/example/LED/write;)Landroid/os/Handler;]
+  + Utf8 [(Lcom/example/LED/write;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [I]
+  + Utf8 [Lcom/example/LED/write;]
+  + Utf8 [StackMapTable]
+  + Utf8 [a]
+  + Utf8 [android/os/Handler]
+  + Utf8 [android/os/Message]
+  + Utf8 [android/widget/CompoundButton$OnCheckedChangeListener]
+  + Utf8 [com/example/LED/m]
+  + Utf8 [com/example/LED/write]
+  + Utf8 [f]
+  + Utf8 [java/lang/Object]
+  + Utf8 [onCheckedChanged]
+  + Utf8 [sendMessage]
+  + Utf8 [what]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/write;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.write a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/write;)V
+    Access flags: 0x0
+      = m(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #8
+        + Fieldref [com/example/LED/m.a Lcom/example/LED/write;]
+      [5] aload_0 v0
+      [6] invokespecial #12
+        + Methodref [java/lang/Object.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    Access flags: 0x1
+      = public void onCheckedChanged(android.widget.CompoundButton,boolean)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 58, locals = 4, stack = 2):
+      [0] iload_2 v2
+      [1] ifeq +31 (target=32)
+      [4] new #2
+        + Class [android/os/Message]
+      [7] dup
+      [8] invokespecial #10
+        + Methodref [android/os/Message.<init> ()V]
+      [11] astore_3 v3
+      [12] aload_3 v3
+      [13] iconst_1
+      [14] putfield #7
+        + Fieldref [android/os/Message.what I]
+      [17] aload_0 v0
+      [18] getfield #8
+        + Fieldref [com/example/LED/m.a Lcom/example/LED/write;]
+      [21] invokestatic #11
+        + Methodref [com/example/LED/write.f (Lcom/example/LED/write;)Landroid/os/Handler;]
+      [24] aload_3 v3
+      [25] invokevirtual #9
+        + Methodref [android/os/Handler.sendMessage (Landroid/os/Message;)Z]
+      [28] pop
+      [29] goto +28 (target=57)
+      [32] new #2
+        + Class [android/os/Message]
+      [35] dup
+      [36] invokespecial #10
+        + Methodref [android/os/Message.<init> ()V]
+      [39] astore_3 v3
+      [40] aload_3 v3
+      [41] iconst_0
+      [42] putfield #7
+        + Fieldref [android/os/Message.what I]
+      [45] aload_0 v0
+      [46] getfield #8
+        + Fieldref [com/example/LED/m.a Lcom/example/LED/write;]
+      [49] invokestatic #11
+        + Methodref [com/example/LED/write.f (Lcom/example/LED/write;)Landroid/os/Handler;]
+      [52] aload_3 v3
+      [53] invokevirtual #9
+        + Methodref [android/os/Handler.sendMessage (Landroid/os/Message;)Z]
+      [56] pop
+      [57] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 2):
+        - [32] Var: ..., Stack: (empty)
+        - [57] Var: ..., Stack: (empty)
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/n
+  Superclass:    android/os/Handler
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.n extends android.os.Handler
+
+Interfaces (count = 0):
+
+Constant Pool (count = 55):
+  + Class [android/os/Handler]
+  + Class [android/os/Message]
+  + Class [com/example/LED/BluetoothLeService]
+  + Class [com/example/LED/n]
+  + Class [com/example/LED/write]
+  + Class [java/util/UUID]
+  + Fieldref [android/os/Message.what I]
+  + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+  + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+  + Methodref [android/os/Handler.<init> ()V]
+  + Methodref [android/os/Handler.handleMessage (Landroid/os/Message;)V]
+  + Methodref [com/example/LED/BluetoothLeService.a (Ljava/util/UUID;[B)V]
+  + Methodref [com/example/LED/write.a (Lcom/example/LED/write;)Ljava/lang/String;]
+  + Methodref [com/example/LED/write.b (Lcom/example/LED/write;)[B]
+  + Methodref [com/example/LED/write.b (Lcom/example/LED/write;Z)Z]
+  + Methodref [com/example/LED/write.g (Lcom/example/LED/write;)[B]
+  + Methodref [java/util/UUID.fromString (Ljava/lang/String;)Ljava/util/UUID;]
+  + NameAndType [<init> ()V]
+  + NameAndType [a (Lcom/example/LED/write;)Ljava/lang/String;]
+  + NameAndType [a (Ljava/util/UUID;[B)V]
+  + NameAndType [a Lcom/example/LED/BluetoothLeService;]
+  + NameAndType [a Lcom/example/LED/write;]
+  + NameAndType [b (Lcom/example/LED/write;)[B]
+  + NameAndType [b (Lcom/example/LED/write;Z)Z]
+  + NameAndType [fromString (Ljava/lang/String;)Ljava/util/UUID;]
+  + NameAndType [g (Lcom/example/LED/write;)[B]
+  + NameAndType [handleMessage (Landroid/os/Message;)V]
+  + NameAndType [what I]
+  + Utf8 [()V]
+  + Utf8 [(Landroid/os/Message;)V]
+  + Utf8 [(Lcom/example/LED/write;)Ljava/lang/String;]
+  + Utf8 [(Lcom/example/LED/write;)V]
+  + Utf8 [(Lcom/example/LED/write;)[B]
+  + Utf8 [(Lcom/example/LED/write;Z)Z]
+  + Utf8 [(Ljava/lang/String;)Ljava/util/UUID;]
+  + Utf8 [(Ljava/util/UUID;[B)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [I]
+  + Utf8 [Lcom/example/LED/BluetoothLeService;]
+  + Utf8 [Lcom/example/LED/write;]
+  + Utf8 [StackMapTable]
+  + Utf8 [a]
+  + Utf8 [android/os/Handler]
+  + Utf8 [android/os/Message]
+  + Utf8 [b]
+  + Utf8 [com/example/LED/BluetoothLeService]
+  + Utf8 [com/example/LED/n]
+  + Utf8 [com/example/LED/write]
+  + Utf8 [fromString]
+  + Utf8 [g]
+  + Utf8 [handleMessage]
+  + Utf8 [java/util/UUID]
+  + Utf8 [what]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/write;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.write a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/write;)V
+    Access flags: 0x0
+      = n(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #8
+        + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+      [5] aload_0 v0
+      [6] invokespecial #10
+        + Methodref [android/os/Handler.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       handleMessage(Landroid/os/Message;)V
+    Access flags: 0x1
+      = public void handleMessage(android.os.Message)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 115, locals = 3, stack = 3):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] invokespecial #11
+        + Methodref [android/os/Handler.handleMessage (Landroid/os/Message;)V]
+      [5] aload_1 v1
+      [6] getfield #7
+        + Fieldref [android/os/Message.what I]
+      [9] istore_2 v2
+      [10] iload_2 v2
+      [11] lookupswitch (2 offsets, default=103) (target=114)
+        0: offset = 64, target = 75
+        1: offset = 25, target = 36
+        default: offset = 103, target = 114
+      [36] aload_0 v0
+      [37] getfield #8
+        + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+      [40] getfield #9
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [43] aload_0 v0
+      [44] getfield #8
+        + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+      [47] invokestatic #13
+        + Methodref [com/example/LED/write.a (Lcom/example/LED/write;)Ljava/lang/String;]
+      [50] invokestatic #17
+        + Methodref [java/util/UUID.fromString (Ljava/lang/String;)Ljava/util/UUID;]
+      [53] aload_0 v0
+      [54] getfield #8
+        + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+      [57] invokestatic #14
+        + Methodref [com/example/LED/write.b (Lcom/example/LED/write;)[B]
+      [60] invokevirtual #12
+        + Methodref [com/example/LED/BluetoothLeService.a (Ljava/util/UUID;[B)V]
+      [63] aload_0 v0
+      [64] getfield #8
+        + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+      [67] iconst_1
+      [68] invokestatic #15
+        + Methodref [com/example/LED/write.b (Lcom/example/LED/write;Z)Z]
+      [71] pop
+      [72] goto +42 (target=114)
+      [75] aload_0 v0
+      [76] getfield #8
+        + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+      [79] getfield #9
+        + Fieldref [com/example/LED/write.a Lcom/example/LED/BluetoothLeService;]
+      [82] aload_0 v0
+      [83] getfield #8
+        + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+      [86] invokestatic #13
+        + Methodref [com/example/LED/write.a (Lcom/example/LED/write;)Ljava/lang/String;]
+      [89] invokestatic #17
+        + Methodref [java/util/UUID.fromString (Ljava/lang/String;)Ljava/util/UUID;]
+      [92] aload_0 v0
+      [93] getfield #8
+        + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+      [96] invokestatic #16
+        + Methodref [com/example/LED/write.g (Lcom/example/LED/write;)[B]
+      [99] invokevirtual #12
+        + Methodref [com/example/LED/BluetoothLeService.a (Ljava/util/UUID;[B)V]
+      [102] aload_0 v0
+      [103] getfield #8
+        + Fieldref [com/example/LED/n.a Lcom/example/LED/write;]
+      [106] iconst_0
+      [107] invokestatic #15
+        + Methodref [com/example/LED/write.b (Lcom/example/LED/write;Z)Z]
+      [110] pop
+      [111] goto +3 (target=114)
+      [114] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 1):
+      + Stack map table attribute (count = 3):
+        - [36] Var: ...[i], Stack: (empty)
+        - [75] Var: ..., Stack: (empty)
+        - [114] Var: ..., Stack: (empty)
+
+Class file attributes (count = 0):
+
+_____________________________________________________________________
++ Program class: com/example/LED/o
+  Superclass:    java/util/TimerTask
+  Major version: 0x33
+  Minor version: 0x0
+  Access flags:  0x20
+    = class com.example.LED.o extends java.util.TimerTask
+
+Interfaces (count = 0):
+
+Constant Pool (count = 35):
+  + Class [android/os/Handler]
+  + Class [android/os/Message]
+  + Class [com/example/LED/o]
+  + Class [com/example/LED/write]
+  + Class [java/util/TimerTask]
+  + Fieldref [android/os/Message.what I]
+  + Fieldref [com/example/LED/o.a Lcom/example/LED/write;]
+  + Methodref [android/os/Handler.sendMessage (Landroid/os/Message;)Z]
+  + Methodref [android/os/Message.<init> ()V]
+  + Methodref [com/example/LED/write.f (Lcom/example/LED/write;)Landroid/os/Handler;]
+  + Methodref [java/util/TimerTask.<init> ()V]
+  + NameAndType [<init> ()V]
+  + NameAndType [a Lcom/example/LED/write;]
+  + NameAndType [f (Lcom/example/LED/write;)Landroid/os/Handler;]
+  + NameAndType [sendMessage (Landroid/os/Message;)Z]
+  + NameAndType [what I]
+  + Utf8 [()V]
+  + Utf8 [(Landroid/os/Message;)Z]
+  + Utf8 [(Lcom/example/LED/write;)Landroid/os/Handler;]
+  + Utf8 [(Lcom/example/LED/write;)V]
+  + Utf8 [<init>]
+  + Utf8 [Code]
+  + Utf8 [I]
+  + Utf8 [Lcom/example/LED/write;]
+  + Utf8 [a]
+  + Utf8 [android/os/Handler]
+  + Utf8 [android/os/Message]
+  + Utf8 [com/example/LED/o]
+  + Utf8 [com/example/LED/write]
+  + Utf8 [f]
+  + Utf8 [java/util/TimerTask]
+  + Utf8 [run]
+  + Utf8 [sendMessage]
+  + Utf8 [what]
+
+Fields (count = 1):
+  + Field:        a Lcom/example/LED/write;
+    Access flags: 0x1010
+      = final synthetic com.example.LED.write a
+
+Methods (count = 2):
+  - Method:       <init>(Lcom/example/LED/write;)V
+    Access flags: 0x0
+      = o(com.example.LED.write)
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 10, locals = 2, stack = 2):
+      [0] aload_0 v0
+      [1] aload_1 v1
+      [2] putfield #7
+        + Fieldref [com/example/LED/o.a Lcom/example/LED/write;]
+      [5] aload_0 v0
+      [6] invokespecial #11
+        + Methodref [java/util/TimerTask.<init> ()V]
+      [9] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+  + Method:       run()V
+    Access flags: 0x1
+      = public void run()
+    Class member attributes (count = 1):
+    + Code attribute instructions (code length = 26, locals = 2, stack = 2):
+      [0] new #2
+        + Class [android/os/Message]
+      [3] dup
+      [4] invokespecial #9
+        + Methodref [android/os/Message.<init> ()V]
+      [7] astore_1 v1
+      [8] aload_1 v1
+      [9] iconst_1
+      [10] putfield #6
+        + Fieldref [android/os/Message.what I]
+      [13] aload_0 v0
+      [14] getfield #7
+        + Fieldref [com/example/LED/o.a Lcom/example/LED/write;]
+      [17] invokestatic #10
+        + Methodref [com/example/LED/write.f (Lcom/example/LED/write;)Landroid/os/Handler;]
+      [20] aload_1 v1
+      [21] invokevirtual #8
+        + Methodref [android/os/Handler.sendMessage (Landroid/os/Message;)Z]
+      [24] pop
+      [25] return
+      Code attribute exceptions (count = 0):
+      Code attribute attributes (attribute count = 0):
+
+Class file attributes (count = 0):
+

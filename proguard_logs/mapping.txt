@@ -1,0 +1,136 @@
+com.example.LED.BluetoothLeService -> com.example.LED.BluetoothLeService:
+    java.lang.String TAG -> b
+    android.bluetooth.BluetoothManager mBluetoothManager -> c
+    android.bluetooth.BluetoothAdapter mBluetoothAdapter -> d
+    java.lang.String mBluetoothDeviceAddress -> e
+    android.bluetooth.BluetoothGatt mBluetoothGatt -> f
+    int mConnectionState -> g
+    java.util.UUID SERVICE -> a
+    android.bluetooth.BluetoothGattCallback mGattCallback -> h
+    android.os.IBinder mBinder -> i
+    void broadcastUpdate(java.lang.String) -> b
+    void broadcastUpdate(java.lang.String,android.bluetooth.BluetoothGattCharacteristic) -> a
+    android.os.IBinder onBind(android.content.Intent) -> onBind
+    boolean onUnbind(android.content.Intent) -> onUnbind
+    boolean initialize() -> a
+    boolean connect(java.lang.String) -> a
+    void disconnect() -> b
+    void close() -> c
+    void writebyte(java.util.UUID,byte[]) -> a
+    int access$002(com.example.LED.BluetoothLeService,int) -> a
+    void access$100(com.example.LED.BluetoothLeService,java.lang.String) -> a
+    java.lang.String access$200() -> d
+    android.bluetooth.BluetoothGatt access$300(com.example.LED.BluetoothLeService) -> a
+    void access$400(com.example.LED.BluetoothLeService,java.lang.String,android.bluetooth.BluetoothGattCharacteristic) -> a
+com.example.LED.BluetoothLeService$1 -> com.example.LED.a:
+    com.example.LED.BluetoothLeService this$0 -> a
+    void onConnectionStateChange(android.bluetooth.BluetoothGatt,int,int) -> onConnectionStateChange
+    void onServicesDiscovered(android.bluetooth.BluetoothGatt,int) -> onServicesDiscovered
+    void onCharacteristicChanged(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic) -> onCharacteristicChanged
+    void onCharacteristicWrite(android.bluetooth.BluetoothGatt,android.bluetooth.BluetoothGattCharacteristic,int) -> onCharacteristicWrite
+com.example.LED.BluetoothLeService$LocalBinder -> com.example.LED.b:
+    com.example.LED.BluetoothLeService this$0 -> a
+    com.example.LED.BluetoothLeService getService() -> a
+com.example.LED.DeviceScanActivity -> com.example.LED.DeviceScanActivity:
+    com.example.LED.DeviceScanActivity$LeDeviceListAdapter mLeDeviceListAdapter -> a
+    android.bluetooth.BluetoothAdapter mBluetoothAdapter -> b
+    boolean mScanning -> c
+    android.os.Handler mHandler -> d
+    android.bluetooth.BluetoothAdapter$LeScanCallback mLeScanCallback -> e
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onResume() -> onResume
+    void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    void onPause() -> onPause
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    void scanLeDevice(boolean) -> a
+    boolean access$002(com.example.LED.DeviceScanActivity,boolean) -> a
+    android.bluetooth.BluetoothAdapter$LeScanCallback access$100(com.example.LED.DeviceScanActivity) -> a
+    android.bluetooth.BluetoothAdapter access$200(com.example.LED.DeviceScanActivity) -> b
+    com.example.LED.DeviceScanActivity$LeDeviceListAdapter access$300(com.example.LED.DeviceScanActivity) -> c
+com.example.LED.DeviceScanActivity$1 -> com.example.LED.c:
+    com.example.LED.DeviceScanActivity this$0 -> a
+    void run() -> run
+com.example.LED.DeviceScanActivity$2 -> com.example.LED.d:
+    com.example.LED.DeviceScanActivity this$0 -> a
+    void onLeScan(android.bluetooth.BluetoothDevice,int,byte[]) -> onLeScan
+com.example.LED.DeviceScanActivity$2$1 -> com.example.LED.e:
+    android.bluetooth.BluetoothDevice val$device -> a
+    com.example.LED.DeviceScanActivity$2 this$1 -> b
+    void run() -> run
+com.example.LED.DeviceScanActivity$LeDeviceListAdapter -> com.example.LED.f:
+    java.util.ArrayList mLeDevices -> b
+    android.view.LayoutInflater mInflator -> c
+    com.example.LED.DeviceScanActivity this$0 -> a
+    void addDevice(android.bluetooth.BluetoothDevice) -> a
+    android.bluetooth.BluetoothDevice getDevice(int) -> a
+    void clear() -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.example.LED.DeviceScanActivity$ViewHolder -> com.example.LED.g:
+    android.widget.TextView deviceName -> a
+    android.widget.TextView deviceAddress -> b
+com.example.LED.write -> com.example.LED.write:
+    java.lang.String TAG -> b
+    com.example.LED.BluetoothLeService mBluetoothLeService -> a
+    java.lang.String mDeviceAddress -> c
+    boolean mConnected -> d
+    android.widget.ImageView imageView -> e
+    android.graphics.Bitmap bitmap -> f
+    boolean sss -> g
+    java.util.Timer mTimer -> h
+    byte[] KAI -> i
+    byte[] GUAN -> j
+    java.lang.String RGB -> k
+    android.content.ServiceConnection mServiceConnection -> l
+    android.content.BroadcastReceiver mGattUpdateReceiver -> m
+    android.os.Handler handler -> n
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onPause() -> onPause
+    void onDestroy() -> onDestroy
+    android.content.IntentFilter makeGattUpdateIntentFilter() -> b
+    byte[] hex2byte(byte[]) -> a
+    void setTimerTask(java.util.Date) -> a
+    java.lang.String access$000(com.example.LED.write) -> a
+    byte[] access$100(com.example.LED.write) -> b
+    java.lang.String access$200() -> a
+    java.lang.String access$300(com.example.LED.write) -> c
+    boolean access$402(com.example.LED.write,boolean) -> a
+    java.util.Timer access$502(com.example.LED.write,java.util.Timer) -> a
+    void access$600(com.example.LED.write,java.util.Date) -> a
+    android.graphics.Bitmap access$700(com.example.LED.write) -> d
+    boolean access$800(com.example.LED.write) -> e
+    android.os.Handler access$900(com.example.LED.write) -> f
+    boolean access$802(com.example.LED.write,boolean) -> b
+    byte[] access$1000(com.example.LED.write) -> g
+com.example.LED.write$1 -> com.example.LED.h:
+    com.example.LED.write this$0 -> a
+    void onServiceConnected(android.content.ComponentName,android.os.IBinder) -> onServiceConnected
+    void onServiceDisconnected(android.content.ComponentName) -> onServiceDisconnected
+com.example.LED.write$2 -> com.example.LED.i:
+    com.example.LED.write this$0 -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.example.LED.write$3 -> com.example.LED.j:
+    com.example.LED.write this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.example.LED.write$3$1 -> com.example.LED.k:
+    com.example.LED.write$3 this$1 -> a
+    void onTimeSet(android.widget.TimePicker,int,int) -> onTimeSet
+com.example.LED.write$4 -> com.example.LED.l:
+    com.example.LED.write this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.example.LED.write$5 -> com.example.LED.m:
+    com.example.LED.write this$0 -> a
+    void onCheckedChanged(android.widget.CompoundButton,boolean) -> onCheckedChanged
+com.example.LED.write$6 -> com.example.LED.n:
+    com.example.LED.write this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.example.LED.write$7 -> com.example.LED.o:
+    com.example.LED.write this$0 -> a
+    void run() -> run

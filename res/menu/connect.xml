@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_connect"
+          android:title="连接"
+          android:orderInCategory="100"
+          android:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/menu_disconnect"
+          android:title="断开"
+          android:orderInCategory="101"
+          android:showAsAction="ifRoom|withText"/>
+</menu>
